@@ -1,0 +1,83 @@
+[EXT.GoblinGiant_EV1]
+    Base = "CHARACTER.GoblinGiant"
+    FileName="sc/chr_goblin_giant_evolution.sc"
+    BlueExportName="Goblin_Giant_Evolution"
+    RedExportName="Goblin_Giant_Evolution_red"
+    HealthBar = "High_2_Segments_EV1"
+    OnStartingAction = "GoblinGiant_EV1_trigger_at_health"
+    Scale = 92
+    ShadowScaleX = 85
+    ShadowScaleY = 80
+    ShadowY = 20
+    ShadowSkew = 25
+    HealthBarOffsetYRed = -36
+    HealthBarOffsetYBlue = -15
+    VisualActions=["goblin_giant_evolution_bag"]
+    DeathEffect="Death_card_evolution_M"
+	SpawnEffect="Deply_Goblin_Giant_Evolution"
+    CustomSpawnFilter="filter_card_evolution"
+    DeployBaseAnimExportName="filter_deploy_unit_legendary"
+    SpawnCharacter="SpearGoblinGiant_EV1"
+    ClonedVersion="GoblinGiant"
+    PrestigeSWF=""
+    PrestigeExportName=""
+    PrestigeExportName2=""
+    PrestigeExportName3=""
+    PrestigeRedExportName=""
+    PrestigeRedExportName2=""
+    PrestigeRedExportName3=""
+
+[EXT.SpearGoblinGiant_EV1]
+    Base = "CHARACTER.SpearGoblinGiant"
+    PrestigeSWF=""
+    PrestigeExportName=""
+    PrestigeExportName2=""
+    PrestigeExportName3=""
+    PrestigeRedExportName=""
+    PrestigeRedExportName2=""
+    PrestigeRedExportName3=""
+
+[ACTION.GoblinGiant_EV1_trigger_at_health]
+    ClassType = "ActionRunActionAtHealth"
+    HealthPercentages = [50, 50, 50]
+    Actions = ["GoblinGiant_EV1_continuous_spawn", "GoblinGiant_EV1_start_spawn_effect", "FirstJulioActionEver"]
+
+[ACTION.GoblinGiant_EV1_continuous_spawn]
+    ClassType = "ActionInterval"
+    Interval = 1500
+    StartCounterAt = 0
+    ActionToExecute = "GoblinGiant_EV1_spawn_forward"
+    AffectedBySpawnSpeed = true
+    PauseTag="NO_SUMMON"
+
+[ACTION.GoblinGiant_EV1_start_spawn_effect]
+    ClassType = "ActionPlayEffect"
+    Effect = "Goblin_Giant_Evolution_Spawn_Start"
+    EffectFlags = "FollowParent"
+
+[ACTION.GoblinGiant_EV1_spawn_forward]
+    ClassType = "ActionSpawnToLocation"
+    ActionToRunOnSpawned="GoblinGiant_EV1_goblin_spawning_effect"
+    SpawnType = "CharacterType"
+    SpawnData = "Goblin"
+    MirroredX = 0
+    MirroredY = -5
+
+[ACTION.GoblinGiant_EV1_goblin_spawning_effect]
+    ClassType = "ActionPlayEffect"
+    Effect = "Goblin_Giant_Evolution_Spawn_Goblins"
+	EffectFlags="FilterCanModifyTransform"
+
+[ACTION.goblin_giant_evolution_bag]
+ClassType="ActionAnimatorLayer"
+LayerName="goblin_giant_evolution_back_bag"
+Filename="sc/chr_goblin_giant_evolution.sc"
+BlueExportName = "Goblin_Giant_Evolution_Bag"
+RedExportName = "Goblin_Giant_Evolution_Bag"
+Visible=true
+
+[ACTION.FirstJulioActionEver]
+ClassType="ActionPlayEffect"
+Effect="Goblin_Giant_Evolution_Bag"
+SpriteName="goblin_giant_evolution_back_bag"
+EffectFlags="Looping"

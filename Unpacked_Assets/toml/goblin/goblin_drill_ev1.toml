@@ -1,0 +1,52 @@
+[EXT.GoblinDrill_EV1]
+    Base="BUILDING.GoblinDrill"
+	FileName="sc/building_goblin_drill_evolution.sc"
+	BlueExportName="goblin_drill_evolution"
+	RedExportName="goblin_drill_evolution_enemy"
+    HealthBar="High_3_Segments_EV1"
+    OnStartingAction="GoblinDrill_EV1_start"
+    Scale=110
+    SpawnPathfindEffect ="goblin_drill_trail_effect_evolution"
+    DeathEffect="goblin_drill_evolution_die"
+    ClonedVersion="GoblinDrill"
+    PrestigeSWF=""
+    PrestigeExportName=""
+    PrestigeExportName2=""
+    PrestigeExportName3=""
+    PrestigeRedExportName=""
+    PrestigeRedExportName2=""
+    PrestigeRedExportName3=""
+
+[ACTION.GoblinDrill_EV1_start]
+    ClassType="ActionGroup"
+    SubActions = ["GoblinDrill_EV1_relocate", "GoblinDrill_EV1_appear_effect"]
+    SubActionsDelay = [ 0, 0 ]
+
+[ACTION.GoblinDrill_EV1_relocate]
+    ClassType="ActionGoblinDrillEvoRelocate"
+    HideTime=1000
+    SpawnCharacterOnHide="Goblin"
+    SpawnCharacterOnHideCounts=[1, 1]
+    OnHideEffect="goblin_drill_evolution_hide"
+    OnReappearEffect="goblin_drill_evolution_deploy"
+    TargetEffectList=["Evo_Drill_target1", "Evo_Drill_target2"]
+    HideHpThresholds=[66, 33]
+
+[ACTION.GoblinDrill_EV1_appear_effect]
+    ClassType="ActionPlayEffect"
+    Effect = "goblin_drill_evolution_deploy"
+
+[EXT.GoblinDrill_EV1_Dig]
+	Base="CHARACTER.GoblinDrillDig"
+	SpawnPathfindMorph="GoblinDrill_EV1"
+	FileName="sc/building_goblin_drill_evolution.sc"
+	BlueExportName="goblin_drill_evolution_ghost"
+	RedExportName="goblin_drill_evolution_ghost"
+	SpawnPathfindEffect ="goblin_drill_trail_effect_evolution"
+    PrestigeSWF=""
+    PrestigeExportName=""
+    PrestigeExportName2=""
+    PrestigeExportName3=""
+    PrestigeRedExportName=""
+    PrestigeRedExportName2=""
+    PrestigeRedExportName3=""

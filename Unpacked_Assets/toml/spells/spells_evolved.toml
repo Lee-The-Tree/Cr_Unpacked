@@ -1,0 +1,4 @@
+
+[GoblinBarrel_EV1]
+	OnExecuteAction="GoblinBarrel_EV1_CreateDecoy"
+

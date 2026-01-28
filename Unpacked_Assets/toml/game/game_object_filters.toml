@@ -1,0 +1,92 @@
+
+[DefaultCharacterTargets]
+MatchTeamEnemy=true
+MatchTypeCharacters=true
+FilterHidden=true
+FilterUnderground=true
+FilterDashing=true
+FilterDragging=true
+FilterCloning=true
+FilterJumping=true
+FilterInvisible=true
+FilterIfNoHitpointComponent=true
+FilterTags="NO_CHECKAVOIDANCE,NO_CHECKCOLLISIONS"
+FilterDescriptionTID="TID_TARGETS_AIR_AND_GROUND"
+
+[GroundCharacterTargets]
+MatchTeamEnemy=true
+MatchTypeCharacters=true
+FilterHidden=true
+FilterUnderground=true
+FilterDashing=true
+FilterDragging=true
+FilterCloning=true
+FilterJumping=true
+FilterFlying=true
+FilterInvisible=true
+FilterIfNoHitpointComponent=true
+FilterTags="NO_CHECKAVOIDANCE,NO_CHECKCOLLISIONS"
+
+[GroundCharacterTargetsNoBuildings]
+MatchTeamEnemy=true
+MatchTypeCharacters=true
+FilterHidden=true
+FilterUnderground=true
+FilterBuildings=true
+FilterDashing=true
+FilterDragging=true
+FilterCloning=true
+FilterJumping=true
+FilterFlying=true
+FilterInvisible=true
+FilterIfNoHitpointComponent=true
+FilterTags="NO_CHECKAVOIDANCE,NO_CHECKCOLLISIONS"
+
+[ForcedCharacterTargets]
+MatchTeamEnemy=true
+MatchTypeCharacters=true
+FilterHidden=true
+FilterIfNoHitpointComponent=true
+FilterTags="NO_CHECKAVOIDANCE,NO_CHECKCOLLISIONS"
+
+[PassiveForcedHitGroundCharacters]
+MatchTeamEnemy=true
+MatchTypeCharacters=true
+FilterHidden=true
+FilterUnderground=true
+FilterTags="NO_CHECKCOLLISIONS"
+FilterIfNoHitpointComponent=true
+FilterFlying=true
+
+[PassiveHitGroundCharactersNotSame]
+MatchTeamEnemy=true
+MatchTypeCharacters=true
+FilterHidden=true
+FilterUnderground=true
+FilterDashing=true
+FilterDragging=true
+FilterCloning=true
+FilterJumping=true
+FilterTags="NO_CHECKCOLLISIONS"
+FilterIfNoHitpointComponent=true
+FilterBuildings=true
+FilterTowers=true
+FilterFlying=true
+FilterSameObjects=true
+
+[WeakPushbackHitGroundCharactersNotSame]
+    MatchTeamEnemy=true
+    MatchTypeCharacters=true
+    FilterHidden=true
+    FilterUnderground=true
+    FilterDashing=true
+    FilterDragging=true
+    FilterCloning=true
+    FilterJumping=true
+    FilterTags="NO_CHECKCOLLISIONS"
+    FilterIfNoHitpointComponent=true
+    FilterBuildings=true
+    FilterTowers=true
+    FilterFlying=true
+    FilterSameObjects=true
+    FilterPushbackIgnore=true

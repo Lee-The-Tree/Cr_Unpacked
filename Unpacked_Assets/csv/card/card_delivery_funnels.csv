@@ -1,0 +1,15 @@
+"Name","Timestamp","Disabled","Reactivation","Battles","Rewards","ArenaNoShow","ArenaUnlocked","KLNoShow","KLUnlocked","SpellUnlocked","EvoUnlocked","SupportCardUnlocked","IconSWF","IconExportName","TitleImage","TitleTID"
+"String","String","Boolean","Boolean","String","String","Int","Int","Int","Int","String","String","String","string","string","string","string"
+"TEST_1","20221224T000000.000Z",,,,"Test_1_Donation",,,,,,,,"sc/chr_king.sc","King_blue",,"TID_GIVEAWAY_LITTLE_PRINCE_TITLE"
+,,,,"TEST_1",,,,,,,,,,,,
+,,,,"TEST_2",,,,,,,,,,,,
+,,,,"TEST_3","Test_1_Reward",,,,,,,,,,,
+"LittlePrince","20231001T000000.000Z",,,,"LittlePrince_Donation",9,11,,,,,,"sc/ui_battle_pass.sc","button_giveaway_HUD","image/card_giveaway/little_prince_giveaway_test_2.png","TID_GIVEAWAY_LITTLE_PRINCE_TITLE"
+,,,,"LittlePrince_1",,,,,,,,,,,,
+,,,,"LittlePrince_2",,,,,,,,,,,,
+,,,,"LittlePrince_3","LittlePrince_Reward",,,,,,,,,,,
+,,,,,"LittlePrince_Reward2",,,,,,,,,,,
+"DaggerDuchess","20240401T000000.000Z",,,,"DaggerDuchess_Donation",9,11,,,,,,"sc/ui_battle_pass.sc","button_giveaway_HUD",,
+,,,,"DaggerDuchess_1",,,,,,,,,,,,
+,,,,"DaggerDuchess_2",,,,,,,,,,,,
+,,,,"DaggerDuchess_3","DaggerDuchess_Reward",,,,,,,,,,,

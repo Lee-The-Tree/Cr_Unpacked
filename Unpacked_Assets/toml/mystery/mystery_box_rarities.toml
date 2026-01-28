@@ -1,0 +1,57 @@
+
+[Common]
+SortOrder = 0
+TID = "commontid"
+BackgroundFileName = "commonfilename"
+BackgroundExportName = "commonexportname"
+UpgradeProbability = 49
+TapSound = "sound_tap_lootdrop_common"
+
+Gold = 30
+WildcardCommon = 30
+WildcardRare = 30
+WildcardEpic = 10
+
+[Rare]
+SortOrder = 1
+TID = "raretid"
+BackgroundFileName = "rarefilename"
+BackgroundExportName = "rareexportname"
+UpgradeProbability = 26
+TapSound = "sound_tap_lootdrop_rare"
+
+Gold = 25
+WildcardCommon = 25
+WildcardRare = 25
+WildcardEpic = 10
+WildcardLegendary = 10
+WildcardChampion = 5
+
+[Epic]
+SortOrder = 2
+TID = "epictid"
+BackgroundFileName = "epicfilename"
+BackgroundExportName = "epicexportname"
+UpgradeProbability = 12
+TapSound = "sound_tap_lootdrop_epic"
+
+BookCardCommon = 12
+BookCardRare = 11
+BookCardEpic = 7
+WildcardShard = 10
+WildcardLegendary = 20
+WildcardChampion = 20
+WildcardElite = 20
+
+[Legendary]
+SortOrder = 3
+TID = "legendarytid"
+BackgroundFileName = "legendaryfilename"
+BackgroundExportName = "legendaryexportname"
+UpgradeProbability = 0
+TapSound = "sound_tap_lootdrop_legendary"
+
+BookCardLegendary = 30
+BookCardAll = 20
+WildcardElite = 30
+FullEvolution = 10

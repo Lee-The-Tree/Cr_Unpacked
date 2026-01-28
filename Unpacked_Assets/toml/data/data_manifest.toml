@@ -1,0 +1,26 @@
+[RELEASE]
+	tags = [""]
+
+[LittlePrince]
+	path = "csv_logic/characters/little_prince.toml"
+
+[GoblinQueen]
+	path = "csv_logic/characters/goblin_queen.toml"
+	
+[GoblinDemolisher]
+	path = "csv_logic/characters/goblin_demolisher.toml"
+
+[GoblinMachine]
+	path = "csv_logic/characters/goblin_machine.toml"
+
+[GoblinCurse]
+	path = "csv_logic/characters/goblin_curse.toml"
+
+[GoblinGiant_EV1]
+	path = "csv_logic/characters/goblin_giant_ev1.toml"
+	
+[GoblinDrill_EV1]
+	path = "csv_logic/characters/goblin_drill_ev1.toml"
+
+[GoblinRocketSilo]
+	path = "csv_logic/events/event_goblin_rocket_silo.toml"

@@ -1,0 +1,28 @@
+
+[Royals]
+SupportCards = ["King_PrincessTowers", "King_CannonTowers", "King_KnifeTowers"]
+
+[Goblins]
+PlayableCards = [
+    "Goblins", 
+    "SpearGoblins", 
+    "BlowdartGoblin", 
+    "GoblinGang", 
+    "GoblinGiant", 
+    "GoblinDemolisher", 
+    "GoblinHut", 
+    "GoblinCage", 
+    "GoblinDrill", 
+    "GoblinBarrel", 
+    "GoblinCurse",
+    "GoblinMachine"
+]
+SupportCards = ["GoblinQueen_SpawnAbility"]
+
+[UnavailableInPractice]
+PlayableCards = [
+    "GoblinDemolisher",
+    "GoblinCurse",
+    "GoblinMachine"
+]
+SupportCards = []

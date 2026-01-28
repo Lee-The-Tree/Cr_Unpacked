@@ -1,0 +1,117 @@
+[CHARACTER.GoblinDemolisher]
+Rarity = "Common"
+TID = "TID_GOBLIN_DEMOLISHER"
+SightRange = 5500
+DeployTime = 1000
+Speed = 60
+Hitpoints = 508
+HitSpeed = 1200
+LoadTime = 700
+Projectile = "GoblinDemolisherProjectile"
+Range = 5000
+AttacksGround = true
+ProjectileEffect = "Goblin_Demolisher_Attack"
+CollisionRadius = 600
+Mass = 6
+ProjectileStartRadius = 350
+ProjectileStartZ = 350
+HealthBar = "High_2_Segments"
+DamageExportName = "filter_damage"
+AttackStartEffect = "bomber_attack_start"
+FileName = "sc/chr_goblin_demolisher.sc"
+BlueExportName = "goblin_demolisher"
+RedExportName = "goblin_demolisher_red"
+DeathEffect = "Goblin_Demolisher_Death"
+MoveEffect = "Goblin_Demolisher_Steps"
+SpawnEffect = "Deploy_Goblin_Demolisher"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+Scale = 42
+ShadowScaleX = 90
+ShadowScaleY = 60
+ShadowX = -5
+ShadowY = 5
+ShadowSkew = 20
+UseAnimator = true
+OnStartingAction = "GoblinDemolisher_trigger_at_health"
+DeathSpawnProjectile = "GoblinDemolisherDeathProjectile"
+HealthBarOffsetY= -14
+
+
+
+[ACTION.GoblinDemolisher_trigger_at_health]
+ClassType = "ActionRunActionAtHealth"
+HealthPercentages = [50]
+Actions = ["GoblinDemolisher_kamikaze_transformation"]
+
+[ACTION.GoblinDemolisher_kamikaze_transformation]
+ClassType = "ActionChangeGameObjectData"
+NewCharacterData = "GoblinDemolisher_kamikaze_form"
+
+[CHARACTER.GoblinDemolisher_kamikaze_form]
+Rarity = "Common"
+Speed = 120
+HitSpeed = 1200
+LoadTime = 1000
+Range = 500
+Kamikaze = true
+TargetOnlyBuildings = true
+LifeTime = 20000
+Hitpoints = 508
+SightRange = 5500
+DeployTime = 1000
+TID = "TID_GOBLIN_DEMOLISHER"
+AttacksGround = true
+DeathSpawnProjectile = "GoblinDemolisherDeathProjectile"
+FileName = "sc/chr_goblin_demolisher.sc"
+BlueExportName = "goblin_demolisher_2"
+RedExportName = "goblin_demolisher_2_red"
+UseAnimator = true
+DamageEffect = "Goblin_Demolisher_Explode"
+DeathEffect = "Goblin_Demolisher_Death"
+MoveEffect = "Goblin_Demolisher_Steps_Idle"
+SpawnEffect = "Goblin_Demolisher_Deploy_Sound"
+ShadowScaleX = 90
+ShadowScaleY = 60
+ShadowX = -5
+ShadowY = 5
+ShadowSkew = 20
+Scale = 42
+CollisionRadius = 600
+Mass = 6
+HealthBar = "High_2_Segments"
+DamageExportName = "filter_damage"
+AttackStartEffect = "Goblin_Demolisher_Attack_Start"
+ContinuousEffect = "Goblin_Demolisher_Steps_Idle"
+DeployBaseAnimExportName = "filter_deploy_unit_default"
+HealthBarOffsetY= -14
+
+[PROJECTILE.GoblinDemolisherProjectile]
+Rarity = "Common"
+Speed = 400
+Damage = 73
+Radius = 1500
+AoeToGround = true
+OnlyEnemies = true
+Gravity = 200
+FileName = "sc/effects.sc"
+ExportName = "projectile_dynamite"
+ShadowExportName = "projectile_arrow_shadow"
+HitEffect = "Goblin_Demolisher_Explode_Dynamite"
+TrailEffect = "Goblin_Demolisher_Fire_Emitter"
+
+[PROJECTILE.GoblinDemolisherDeathProjectile]
+Rarity = "Common"
+Speed = 400
+Damage = 158
+Pushback = 2000
+Radius = 2500
+AoeToGround = true
+AoeToAir = true
+OnlyEnemies = true
+Gravity = 200
+DeflectBehaviour = "NoDeflect"
+FileName = "sc/effects.sc"
+ExportName = "projectile_dynamite"
+ShadowExportName = "projectile_arrow_shadow"
+HitEffect = "Goblin_Demolisher_Explode"
+TrailEffect = "Goblin_Demolisher_Fire_Emitter"

@@ -1,0 +1,25 @@
+[CHARACTER.LittlePrince]
+	AnimationsKeepLastFrame=true
+	ResetHitTimerWhenNoTarget=true
+	OnStartingAttackAction="LittlePrinceChooseAttack"
+	AttackSequence=[0,1,2]
+	AttackSequenceMode="None"
+	Projectile2="LittlePrinceProjectile"
+	Projectile3="LittlePrinceProjectile"
+
+[ACTION.LittlePrinceChooseAttack]
+	ClassType="ActionFilter"
+	Condition="attack_count == 0"
+	OnTrueAction="LittlePrinceChangeAnim_to_0"
+[ACTION.LittlePrinceChooseAttack.OnFalseAction]
+	ClassType="ActionFilter"
+	Condition="attack_count == 3"
+	OnTrueAction="LittlePrinceSpeedup1"
+[ACTION.LittlePrinceChooseAttack.OnFalseAction.OnFalseAction]
+	ClassType="ActionFilter"
+	Condition="attack_count == 6"
+	OnTrueAction="LittlePrinceSpeedup2"
+[ACTION.LittlePrinceChooseAttack.OnFalseAction.OnFalseAction.OnFalseAction]
+	ClassType="ActionFilter"
+	Condition="attack_count == 7"
+	OnTrueAction="LittlePrinceChangeAnim_to_2"

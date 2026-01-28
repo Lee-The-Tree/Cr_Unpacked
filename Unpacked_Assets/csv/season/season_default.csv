@@ -1,0 +1,4 @@
+"tr","Arena","RankedArena","TrophyRoadSWF","SeasonPassSWF","SeasonPassPro","DisplayName","GoldBankCapacity","TrophyRoad","LockForLowLevels","RankedLeaguesTemplateIndex","CrownsPerTowerStanding","CrownRushMultipliesTowerStanding"
+"String","string","string","String","String","string","string","int","string","boolean","Int","Int","boolean"
+"SeasonDefault","Arena_Legendary","Arena_Ranked","sc/season_0_default.sc","sc/season_0_default.sc","Pro_EarlyStrikes","TID_SEASON_NAME_DEFAULT",0,"SeasonDefault","TRUE",4,1,"TRUE"
+"SeasonOffline","Arena_Legendary","Arena_Ranked","sc/season_0_default.sc","sc/season_0_default.sc","Pro_Offline","TID_SEASON_NAME_DEFAULT",20000,"SeasonDefault","TRUE",4,1,"TRUE"

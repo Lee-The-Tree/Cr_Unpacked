@@ -1,0 +1,63 @@
+
+[LittlePrinceLvl1]
+	AliveIfTrue="attack_count >= 3 && attack_count <= 5"
+
+[LittlePrinceLvlMax]
+	AliveIfTrue="attack_count >= 6"
+
+[IceSpirits_Target_EV1]
+	Rarity="Common"
+	TID="TID_SPELL_RAGE"
+	FilterFile="sc/effects.sc"
+	FilterExportName="filter_cold"
+	TopEffect="Evolution_Ice_Spirit_Crystal"
+	TopEffectVerticalOffset=28
+	TopEffectDisabledForAttachedCharacters=true
+	NotCloned=true
+
+[Event_FreezeTimer]
+	AliveIfTrue="!STOP_FREEZE()"
+
+[Event_Freeze]
+	AliveIfTrue="!STOP_FREEZE()"
+
+[VoodooCurse]
+	OtherBuffDeathSpawnAllowed = true
+
+
+[Event_LoveBuff]
+	Rarity="Epic"
+	HealPerSecond=20
+	HitFrequency=1000
+	NoEffectToCrownTowers=true
+	FilterFile="sc/effects.sc"
+	FilterExportName="filter_rage_mode"
+	TopEffect="Love_Buff_Floating_Heart"
+	TopEffectVerticalOffset=28
+	TopEffectDisabledForAttachedCharacters=true
+	NotCloned=true
+	OnStartAction="LoveBuffAOEAction"
+
+[LoveCharm]
+	Rarity="Epic"
+	NoEffectToCrownTowers=true
+	SwitchTeam=true
+	SwitchTeamContinuosEffect="SMArcher_Charming_Loop"
+
+[Invisibility]
+	ShadowAlpha=20	 	
+
+[InvisibilityRemoveOnAttack]
+	ShadowAlpha=20
+
+[ArcherQueenRapid]
+	ShadowAlpha=20
+
+[InvisibilityTemp]
+	ShadowAlpha=20
+
+[MysteryBuff_Invisibility]
+	ShadowAlpha=20
+
+[ImmuneToWeakPushback]
+	IgnorePushBack=true

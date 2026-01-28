@@ -1,0 +1,183 @@
+[KingTower]
+IsSummoner=true
+OnStartingAction="WaitForKingTowerActivation"
+SkinType="KingTower"
+HealthBarOffsetYRed=-30
+HealthBarOffsetYBlue=170
+
+[DummyKingTower]
+IsSummoner=true
+
+[DummyKingTower2]
+IsSummoner=true
+
+[KingTower3]
+IsSummoner=true
+
+[HeistStorage]
+IsSummoner=true
+
+[HeistStorage3]
+IsSummoner=true
+
+[KingTowerClanBoatAttacker]
+IsSummoner=true
+
+[KingTowerClanBoatDefender]
+IsSummoner=true
+
+[PrincessTower]
+SkinType="PrincessTower"
+HealthBarOffsetYRed=-12
+HealthBarOffsetYBlue=62
+
+[KingTower_Battleground]
+IsSummoner=true
+OnStartingAction="WaitForKingTowerActivation"
+SkinType="KingTower"
+
+[PrincessTower_Battleground]
+SkinType="PrincessTower"
+
+[KingTower_LowHP]
+IsSummoner=true
+OnStartingAction="WaitForKingTowerActivation"
+SkinType="KingTower"
+
+[PrincessTower_LowHP]
+SkinType="PrincessTower"
+
+[KingTower_chess]
+IsSummoner=true
+SkinType="KingTower"
+
+[PrincessTower_chess]
+SkinType="PrincessTower"
+
+[KingTower_IgnoreBarrel]
+IsSummoner=true
+OnStartingAction="WaitForKingTowerActivation"
+SkinType="KingTower"
+
+[PrincessTower_IgnoreBarrel]
+SkinType="PrincessTower"
+
+[Cannoneer]
+    Rarity = "Common"
+    SkinType="PrincessTower"
+    SightRange = 7500
+    Hitpoints = 1200
+    HitSpeed = 2400
+    LoadTime = 1800
+    Projectile = "CannoneerProjectile"
+    Range = 7500
+    AttacksGround = true
+    AttacksAir = true
+    ProjectileEffect = "ArcherTowerAttack"
+    FileName = "sc/building_tower.sc"
+    BlueExportName = "StarTower_base_blue"
+    BlueTopExportName = "StarTower_top_blue"
+    RedExportName = "StarTower_base_red"
+    RedTopExportName = "StarTower_top_red"
+    PrestigeSWF = "sc/building_prestige_dl.sc"
+    AttachedCharacter = "TowerCannoneer"
+    AttachedCharacterHeight = 2200
+    DeathEffect = "TowerExplode"
+    CrowdEffects = true
+    ShadowScaleX = 102
+    ShadowScaleY = 70
+    ShadowX = -5
+    ShadowY = 5
+    ShadowSkew = 13
+    Scale = 100
+    CollisionRadius = 1000
+    ProjectileStartRadius = 300
+    ProjectileStartZ = 3000
+    IsSummonerTower = true
+    NoDeploySizeW = 11
+    NoDeploySizeH = 21
+    TID = "TID_BUILDING_ARCHER_TOWER"
+    AttachedCharacterOffsetY = 260
+    HealthBar = "Tower"
+    ShowHealthNumber = true
+    HealthBarOffsetYRed = 0
+    HealthBarOffsetYBlue = 72
+
+[DaggerDuchess]
+    Rarity = "Common"
+    SkinType="PrincessTower"
+    SightRange = 7500
+    Hitpoints = 1270
+    HitSpeed = 450
+    Projectile = "TowerKnifeThrowerProjectile"
+    Range = 7500
+    AttacksGround = true
+    AttacksAir = true
+    FileName = "sc/building_tower.sc"
+    BlueExportName = "StarTower_base_blue"
+    BlueTopExportName = "StarTower_top_blue"
+    RedExportName = "StarTower_base_red"
+    RedTopExportName = "StarTower_top_red"
+    PrestigeSWF = "sc/building_prestige_dl.sc"
+    AttachedCharacter = "TowerKnifeThrower"
+    AttachedCharacterHeight = 2600
+    DeathEffect = "TowerExplode"
+    CrowdEffects = true
+    ShadowScaleX = 102
+    ShadowScaleY = 70
+    ShadowX = -5
+    ShadowY = 5
+    ShadowSkew = 13
+    Scale = 100
+    CollisionRadius = 1000
+    ProjectileStartRadius = 300
+    ProjectileStartZ = 3000
+    IsSummonerTower = true
+    NoDeploySizeW = 11
+    NoDeploySizeH = 21
+    TID = "TID_BUILDING_ARCHER_TOWER"
+    KeepTargetWithPendingDamage = false
+    AnimationsKeepLastFrame=true
+    AttackSequenceMode="None"
+    AttackSequence=[0,1,2,3]
+    HealthBar = "Tower"
+    ShowHealthNumber = true
+    HealthBarOffsetYRed = -12
+    HealthBarOffsetYBlue = 62
+    TryToFinishAttackAnimation=true
+
+[[DaggerDuchess.AttackSequenceList]]
+Projectile = "TowerKnifeThrowerProjectile"
+HitSpeedMultiplier=100
+AttackStartEffect="TowerKnifeThrowerAttack"
+[[DaggerDuchess.AttackSequenceList]]
+Projectile = "TowerKnifeThrowerProjectile"
+HitSpeedMultiplier=100
+AttackStartEffect="TowerKnifeThrowerAttack"
+[[DaggerDuchess.AttackSequenceList]]
+Projectile = "TowerKnifeThrowerProjectile"
+HitSpeedMultiplier=70
+AttackStartEffect="dd_final_attack"
+[[DaggerDuchess.AttackSequenceList]]
+Projectile = "TowerKnifeThrowerProjectile"
+HitSpeedMultiplier=90
+AttackStartEffect="dd_slow_attack"
+
+[DaggerDuchess.OnStartingAction]
+    ClassType="ActionBurstAttack"
+    MaxChargeCount=8
+    RechargeTime=900
+    RechargeIncrement=1
+    IndicatorFileName="sc/ui.sc"
+    IndicatorExportName="dagger_dutches_charge_counter"
+    IndicatorOffsetYBlue=43
+    IndicatorOffsetYRed=-28
+    AttackSequenceIndices=[2,0,1,0,1,0,1,0]
+    DepletedAttackSequenceIndex=3
+    AIStateName="DaggerDuchessBurstAttack"
+
+[GoblinCage]
+OnStartingAction = "goblin_cage_shake_when_target"
+
+[SpellCauldron_effect]
+OnStartingAction="SpellCauldron_SpawnAction"

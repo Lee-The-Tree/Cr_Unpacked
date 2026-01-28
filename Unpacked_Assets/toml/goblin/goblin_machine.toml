@@ -1,0 +1,167 @@
+[CHARACTER.GoblinMachine]
+Rarity = "Common"
+SightRange = 5500
+DeployTime = 1000
+Speed = 60
+Hitpoints = 858
+HitSpeed = 900
+LoadTime = 400
+Damage = 53
+Range = 1200
+AttacksGround = true
+FileName = "sc/chr_goblin_machine.sc"
+BlueExportName = "goblin_machine"
+RedExportName = "goblin_machine"
+UseAnimator = true
+DamageEffect = "Goblin_Machine_HIt"
+DeathEffect = "Goblin_Machine_Die"
+MoveEffect = "Goblin_Machine_Steps"
+SpawnEffect = "Deploy_Goblin_Machine"
+DeployBaseAnimExportName="filter_deploy_unit_legendary"
+ShadowScaleX = 85
+ShadowScaleY = 60
+ShadowY = 10
+ShadowSkew = 25
+Scale = 74
+CollisionRadius = 750
+Mass = 18
+HealthBar = "High"
+HealthBarOffsetYRed = -20
+HealthBarOffsetYBlue = -20
+AttackStartEffect = "Goblin_Machine_Attack_Start"
+DamageExportName = "filter_damage_wobble"
+ProjectileStartRadius = 500
+AttackStateCount = 2
+AttackFinishTime = 500
+ProjectileStartZ = 1900
+TID = "TID_GOBLIN_MACHINE"
+IgnorePushback = true
+OnStartingAction="goblin_machine_rockets_start"
+VisualActions=["goblin_machine_visual"]
+
+[ACTION.goblin_machine_rocket]
+ClassType="ActionTargetIndicatorAttack"
+TargetAoE="goblin_machine_rocket_target_signal"
+Projectile="GoblinMachineRocketProjectile"
+ProjectileOffsetToCharacterLookDirection=-1200
+LoadTime=1500
+TargetIndicatorDelay=0
+AttackDelay=1000
+AttackCooldown=3000
+Range=5000
+MinimumRange=2500
+TargetFilter="DefaultCharacterTargets"
+Gravity = -2000
+TID="TID_GOBLIN_MACHINE_ROCKET"
+TargetStartIndicationAction = "goblin_machine_rocket_load"
+GameTagsToSetToStopTargetIndication="NO_CHARGE"
+ProjectileStartZ=5000
+OnProjectileShootAction="goblin_machine_rocket_hide"
+ForceStopIfTrue="!is_combat_enabled() || NO_ATTACK"
+Singleton=true
+
+[ACTION.goblin_machine_rockets_start]
+ClassType="ActionGroup"
+SubActionsDelay=[1000, 1000]
+SubActions=["goblin_machine_rocket", "goblin_machine_wait_for_stun"]
+
+[ACTION.goblin_machine_wait_for_stun]
+ClassType="ActionWaitToActivate"
+Condition="!is_combat_enabled() || NO_ATTACK"
+OnActivateAction="goblin_machine_wait_for_stun_to_end"
+Singleton=true
+
+[ACTION.goblin_machine_wait_for_stun_to_end]
+ClassType="ActionWaitToActivate"
+Condition="is_combat_enabled() && !NO_ATTACK"
+GameTagsToSet="NO_CHARGE"
+OnActivateAction="goblin_machine_rockets_after_stunned"
+Singleton=true
+
+[ACTION.goblin_machine_rockets_after_stunned]
+ClassType="ActionGroup"
+SubActionsDelay=[0, 0]
+SubActions=["goblin_machine_wait_for_stun", "goblin_machine_rocket_after_stun"]
+
+[ACTION.goblin_machine_rocket_after_stun]
+ClassType="ActionTargetIndicatorAttack"
+TargetAoE="goblin_machine_rocket_target_signal"
+Projectile="GoblinMachineRocketProjectile"
+ProjectileOffsetToCharacterLookDirection=-1200
+LoadTime=3000
+TargetIndicatorDelay=0
+AttackDelay=1000
+AttackCooldown=3000
+Range=5000
+MinimumRange=2500
+TargetFilter="DefaultCharacterTargets"
+Gravity = -2000
+TID="TID_GOBLIN_MACHINE_ROCKET"
+TargetStartIndicationAction = "goblin_machine_rocket_load"
+GameTagsToSetToStopTargetIndication="NO_CHARGE"
+ProjectileStartZ=5000
+OnProjectileShootAction="goblin_machine_rocket_hide"
+ForceStopIfTrue="!is_combat_enabled() || NO_ATTACK"
+Singleton=true
+
+
+[AEO.goblin_machine_rocket_target_signal]
+Rarity="Common"
+LifeDuration=9999 
+OnStartingAction="SignalSet"
+[ACTION.SignalSet]
+    ClassType= "ActionGroup"
+    SubActionsDelay = [0, 250]
+    SubActions = [
+        "SignalIntro",
+        "SignalCore"
+    ]
+
+[ACTION.SignalIntro]
+    ClassType="ActionPlayEffect"
+    Effect="Goblin_Machine_Target_Intro"
+
+[ACTION.SignalCore]
+    ClassType="ActionPlayEffect"
+    Effect="Goblin_Machine_Target"
+    EffectFlags="Looping"
+
+[PROJECTILE.GoblinMachineRocketProjectile]
+Name = "GoblinMachineRocketProjectile"
+Rarity = "Common"
+Speed = 250
+FileName = "sc/effects.sc"
+ExportName = "projectile_goblin_rocket"
+RedExportName = "projectile_goblin_rocket_enemy"
+ShadowExportName = "projectile_shadow_rocket"
+Scale = 61
+HitEffect = "Goblin_Machine_Explosion"
+Damage = 153
+CrownTowerDamagePercent = -50
+Radius = 1500
+AoeToAir = true
+AoeToGround = true
+OnlyEnemies = true
+Gravity = 44
+TrailEffect = "Goblin_Machine_Rocket"
+use360Frames = true
+
+[ACTION.goblin_machine_visual]
+ClassType="ActionAnimatorLayer"
+LayerName="goblin_machine_back_rocket"
+Filename="sc/chr_goblin_machine.sc"
+BlueExportName = "goblin_machine_rocket"
+RedExportName = "goblin_machine_rocket_enemy"
+Visible=true
+
+[ACTION.goblin_machine_rocket_load]
+ClassType="ActionPlayEffect"
+Effect="Goblin_Machine_Rocket_Pulse"
+SpriteName="goblin_machine_back_rocket"
+EffectFlags="Looping"
+ForceStopIfTrue="NO_CHARGE"
+
+[ACTION.goblin_machine_rocket_hide]
+ClassType="ActionPlayEffect"
+Effect="Goblin_Machine_Rocket_Visibility"
+SpriteName="goblin_machine_back_rocket"

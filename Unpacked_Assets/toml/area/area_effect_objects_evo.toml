@@ -1,0 +1,155 @@
+
+[EvoRoyalGiantPush_EV1]
+
+	Rarity = "Common"
+	LifeDuration = 1
+	Radius = 3000
+	OneShotEffect = "royal_giant_evo_push_back"
+	Pushback = 1000
+	Damage = 32
+	OnlyEnemies = true
+	HitsGround = true
+	Tags = "NO_AOE_PUSHBACK_VFX"
+
+[FirecrackerFireworksBig_EV1]
+
+	Rarity = "Common"
+	LifeDuration = 3000
+	Radius = 2500
+	LoopingEffect = "Evo_fireworks_loop"
+	OneShotEffect = "Evo_fireworks_effect"
+	ScaledEffect = "Evo_fireworks_ground"
+	HitSpeed = 250
+	Buff = "FirecrackerFireworks_EV1"
+	BuffTime = 400
+	BuffNumber = 1
+	OnlyEnemies = true
+	HitsGround = true
+	HitsAir = true
+
+[FirecrackerFireworksSmall_EV1]
+
+	Rarity = "Common"
+	LifeDuration = 2500
+	Radius = 1200
+	LoopingEffect = "Evo_fireworks_small_loop"
+	OneShotEffect = "Evo_fireworks_small_effect"
+	ScaledEffect = "Evo_fireworks_small_ground"
+	HitSpeed = 250
+	Buff = "FirecrackerFireworks_EV1"
+	BuffTime = 400
+	BuffNumber = 1
+	OnlyEnemies = true
+	HitsGround = true
+	HitsAir = true
+
+[IceSpiritsAOE_EV1]
+
+	Rarity = "Common"
+	LifeDuration = 6000
+	AffectsHidden = true
+	Radius = 2000
+	NoFollowObjectEffect = "Evolution_Ice_Spirit_Crystal_Ground"
+	HitEffect = "Evo_icespirit_projectile_hit"
+	HitSpeed = 3000
+	Damage = 43
+	Buff = "Freeze"
+	BuffTime = 1300
+	BuffNumber = 1
+	OnlyEnemies = true
+	HitsGround = true
+	HitsAir = true
+	FollowBehaviour = "FollowTarget"
+	StayAfterParentDies = true
+
+[Valkyrie_MiniTornado_EV1]
+
+	Base="Tornado"
+	LifeDuration = 500
+	Radius = 5500
+	Buff = "Valkyrie_MiniTornado_EV1"
+	ScaledEffect = "Spell_evo_valk_tornado_deploy"
+	FollowBehaviour = "FollowParent"
+
+[Zap_EV1]
+
+	Base = "Zap"
+	LifeDuration = 5000
+	HitSpeed = 0
+	OnStartingAction = "Zap_EV1_AfterStun_V2"
+	OneShotEffect = "Spell_zap_evo_effect"
+	
+[DummyZap_EV1_Visual]
+
+	Rarity = "Common"
+	HitSpeed=0
+	ScaledEffect="Zap_Evolution_Area_Storm_01"
+	LifeDuration = 1500
+	OneShotEffect = "Spell_zap_evo_effect"
+
+[Zap_EV1_SpawnAOE_medium]
+
+	Base = "Zap"
+	Damage = ["%",50]
+	Radius = ["+",500]
+	LifeDuration = 1500
+	ScaledEffect="Zap_Evolution_Area_Storm_02"
+	OneShotEffect = "Spell_zap_evo_effect_lessdamage"
+
+[Zap_EV1_SpawnAOE_large]
+
+	Base = "Zap"
+	Damage = ["%",50]
+	Radius = ["+",1000]
+	LifeDuration = 400
+	OneShotEffect = "Spell_zap_evo_effect_lessdamage"
+
+
+[Tesla_EV1_AppearStun]
+	
+	Rarity = "Common"
+	OnlyEnemies = true
+	HitsGround = true
+	HitsAir = true
+	Radius = 1
+	MaxRadius = 6000
+	LifeDuration = 1500
+	HitSpeed = 50
+	Damage=0
+	OnHitAction="Tesla_EV1_SpawnBuff"
+	OneHitPerTarget=true
+
+[Wizard_EV1_ShieldLostExplosion]
+
+	Rarity = "Rare"
+	LifeDuration = 1
+	Radius = 3000
+	HitEffect = "wizard_evo_shieldExplosion"
+	Pushback = 4000
+	Damage = 109
+	OnlyEnemies = true
+	HitsGround = true
+	HitsAir = true
+
+[Wizard_EV1_BurningAOE]
+
+	Rarity = "Rare"
+	LifeDuration = 999999
+	Radius = 4000
+	LoopingEffect = "Evo_wizard_burningAOE"
+	HitSpeed = 500
+	Damage = 24
+	OnlyEnemies = true
+	HitsGround = true
+	HitsAir = true
+	FollowBehaviour = "FollowParent"
+	Tags = "NO_AOE_DAMAGE_VFX"
+	AliveIfTrue="set_context_to_aoe_follow_object() && HAS_SHIELD()"
+	ExtraHitEffect="chr_wizard_projectile_hit"
+
+[Tesla_EV1_DummyAEO]
+
+	Rarity = "Common"
+	LifeDuration = 1000
+	HitSpeed = -1
+	OnStartingAction = "Tesla_EV1_AppearStun"

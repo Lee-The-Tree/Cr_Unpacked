@@ -1,0 +1,115 @@
+
+[Common]
+TID = "TID_RARITY_COMMON"
+SortOrder = 1
+SortCapacity = 1
+LevelCount = 15
+RelativeLevel = 0
+TournamentLevelIndex = 10
+UpgradeExp = [4, 5, 6, 10, 25, 50, 100, 200, 400, 600, 800, 1600, 2000, 50000, 0]
+UpgradeCost = [5, 20, 50, 150, 400, 1000, 2000, 4000, 8000, 15000, 35000, 75000, 100000, 0, 0]
+UpgradeMaterialCount = [2, 4, 10, 20, 50, 100, 200, 400, 800, 1000, 1500, 3000, 5000, 50000, 0]
+CardFileName = "sc/ui.sc"
+CardExportName = "support_card_common"
+CardTextBgExportName = "support_card_level_common"
+CardCappedLevelBgFrameIdx = 0
+InfoPageFilename = "sc/ui.sc"
+InfoPageExportName = "support_card_ability_rarity_type_common"
+TextColor = ["153-204-255"]
+OverflowPrestige = 1
+EliteWildcardsConversionValue = 1
+GoldConversionValue = 5
+AppearEffect = "openChest_get_common"
+LoopEffect = "openChest_loop_common"
+
+[Rare]
+TID = "TID_RARITY_RARE"
+SortOrder = 2
+SortCapacity = 7
+LevelCount = 13
+RelativeLevel = 2
+TournamentLevelIndex = 8
+UpgradeExp = [6, 10, 25, 50, 100, 200, 400, 600, 800, 1600, 2000, 5000, 0]
+UpgradeCost = [50, 150, 400, 1000, 2000, 4000, 8000, 15000, 35000, 75000, 100000, 0 ,0]
+UpgradeMaterialCount = [2, 4, 10, 20, 50, 100, 200, 400, 500, 750, 1250, 50000, 0]
+CardFileName = "sc/ui.sc"
+CardExportName = "support_card_rare"
+CardTextBgExportName = "support_card_level_rare"
+CardCappedLevelBgFrameIdx = 1
+InfoPageFilename = "sc/ui.sc"
+InfoPageExportName = "support_card_rarity_type_rare"
+TextColor = ["255-204-102"]
+OverflowPrestige = 10
+EliteWildcardsConversionValue = 5
+GoldConversionValue = 50
+AppearEffect = "openChest_get_rare"
+LoopEffect = "openChest_loop_rare"
+
+[Epic]
+TID = "TID_RARITY_EPIC"
+SortOrder = 3
+SortCapacity = 80
+LevelCount = 10
+RelativeLevel = 5
+TournamentLevelIndex = 5
+UpgradeExp = [25, 100, 200, 400, 600, 800, 1600, 2000, 50000, 0]
+UpgradeCost = [400, 2000, 4000, 8000, 15000, 35000, 75000, 100000, 0, 0]
+UpgradeMaterialCount = [2, 4, 10, 20, 40, 50, 100, 200, 50000, 0]
+CardFileName = "sc/ui.sc"
+CardExportName = "support_card_epic"
+CardTextBgExportName = "support_card_level_epic"
+CardCappedLevelBgFrameIdx = 2
+InfoPageFilename = "sc/ui.sc"
+InfoPageExportName = "support_card_rarity_type_epic"
+TextColor = ["255-153-255"]
+OverflowPrestige = 100
+EliteWildcardsConversionValue = 20
+GoldConversionValue = 500
+AppearEffect = "openChest_get_epic"
+LoopEffect = "openChest_loop_epic"
+
+[Legendary]
+TID = "TID_RARITY_LEGENDARY"
+SortOrder = 4
+SortCapacity = 2000
+LevelCount = 7
+RelativeLevel = 8
+TournamentLevelIndex = 2
+UpgradeExp = [250, 600, 800, 1600, 2000, 50000, 0]
+UpgradeCost = [5000, 15000, 35000, 75000, 100000, 0, 0]
+UpgradeMaterialCount = [2, 4, 6, 10, 20, 50000, 0]
+CardFileName = "sc/ui.sc"
+CardExportName = "support_card_legendary"
+CardTextBgExportName = "support_card_level_legendary"
+CardCappedLevelBgFrameIdx = 3
+InfoPageFilename = "sc/ui.sc"
+InfoPageExportName = "support_card_rarity_type_legendary"
+TextColor = ["255-153-255","255-153-255","255-255-153","153-255-102","153-255-102"]
+OverflowPrestige = 1000
+EliteWildcardsConversionValue = 1500
+GoldConversionValue = 2000
+AppearEffect = "openChest_get_legendary"
+LoopEffect = "openChest_loop_legendary"
+
+[Champion]
+TID = "TID_RARITY_CHAMPION"
+SortOrder = 5
+SortCapacity = 4000
+LevelCount = 5
+RelativeLevel = 10
+TournamentLevelIndex = 0
+UpgradeExp = [800, 1600, 2000, 50000, 0]
+UpgradeCost = [35000, 75000, 100000, 0, 0]
+UpgradeMaterialCount = [2, 8, 20, 50000, 0]
+CardFileName = "sc/ui.sc"
+CardExportName = "support_card_champion"
+CardTextBgExportName = "support_card_level_champion"
+CardCappedLevelBgFrameIdx = 4
+InfoPageFilename = "sc/ui.sc"
+InfoPageExportName = "support_card_rarity_type_champion"
+TextColor = ["255-222-0","255-217-100","253-251-222"]
+OverflowPrestige = 2000
+EliteWildcardsConversionValue = 4000
+GoldConversionValue = 4000
+AppearEffect = "openChest_get_champion"
+LoopEffect = "openChest_loop_champion"

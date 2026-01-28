@@ -1,0 +1,312 @@
+
+[Knight_EV1]
+
+	Base="Knight"
+	PrestigeSWF=""
+	PrestigeExportName2=""
+	Knight_prestige=""
+	PrestigeExportName3=""
+	DeathEffect="Death_card_evolution_M"
+	SpawnEffect="Deploy_Knight_Evolution"
+	HealthBar="Medium_EV1"
+	BuffWhenNotAttacking="Knight_Fortify_EV1"
+	BuffWhenNotAttackingTime=50
+	CustomSpawnFilter="filter_card_evolution"
+	ClonedVersion="Knight"
+	FileName="sc/chr_knight_evolution.sc"
+	BlueExportName="knight_evolution"
+	RedExportName="knight_evolution_enemy"
+	Scale=78
+	DeployBaseAnimExportName="filter_deploy_unit_legendary"
+	HealthBarOffsetY=["=",-10]
+
+
+[Barbarian_EV1]
+
+	Base="Barbarian"
+	TID="TID_CHARACTER_EVOLVED_BARBARIAN"
+	Hitpoints=["%",110]
+	FileName="sc/chr_barbarian_evolution.sc"
+	RedExportName="enemy_barbarian1"
+	PrestigeSWF=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	DeathEffect="Death_card_evolution_M"
+	SpawnEffect="Deploy_Barbarian_Evolution"
+	HealthBar="Medium_EV1"
+	Scale=56
+	DeployBaseAnimExportName="filter_deploy_unit_legendary"
+	BuffAfterHitsCount=[ 1 ]
+	BuffAfterHitsTime=[ 3000 ]
+	BuffAfterHits=[ "Barbarian_EVO_Rage" ]
+	CustomSpawnFilter="filter_card_evolution"
+	ClonedVersion="Barbarian"
+
+[Skeleton_EV1]
+
+	Base="Skeleton"
+	FileName="sc/chr_skeleton_evolution.sc"
+	BlueExportName="evoskeleton1"
+	RedExportName="evoskeleton1"
+	PrestigeSWF=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	DeathEffect="Death_card_evolution_S"
+	SpawnEffect="Deploy_Skeleton_Evolution"
+	Scale=["=",40]
+	HealthBar="Small_EV1"
+	HealthBarOffsetY=["=",-10]
+	SpawnCharacterEffect="evolution_skeleton_spawn"
+	DeployBaseAnimExportName="filter_deploy_unit_legendary"
+	BuffAfterHitsCount=[ 1 ]
+	BuffAfterHitsTime=[ 500 ]
+	BuffAfterHits=[ "SkeletonDuplication_EV1" ]
+	CustomSpawnFilter="filter_card_evolution"
+	GroupMaxSize=8
+	ClonedVersion="Skeleton"
+
+[Valkyrie_EV1]
+
+	Base="Valkyrie"
+	Hitpoints=["%",110]
+	OnAttackAction="Valkyrie_EV1_Tornado"
+	AttackStartEffect="Evo_Valkyrie_Atk"
+	PrestigeSWF=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	DeathEffect="Death_card_evolution_M"
+	SpawnEffect="Deploy_Valkyrie_Evolution"
+	HealthBar="Medium_EV1"
+	DeployBaseAnimExportName="filter_deploy_unit_legendary"
+	CustomSpawnFilter="filter_card_evolution"
+	ClonedVersion="Valkyrie"
+	FileName="sc/chr_valkyrie_evolution.sc"
+	BlueExportName="valkyrie_evolution"
+	RedExportName="valkyrie_evolution_enemy"
+	Scale=84
+	HealthBarOffsetY=-10
+
+[Bomber_EV1]
+
+	Base="Bomber"
+	Projectile = "BombSkeletonProjectile_EV1"
+	PrestigeSWF=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	DeathEffect="Death_card_evolution_S"
+	MoveEffect="evo_bomber_steps"
+	SpawnEffect="Deploy_Bomber_Evolution"
+	HealthBar="Small_EV1"
+	CustomSpawnFilter="filter_card_evolution"
+	ClonedVersion="Bomber"
+	FileName="sc/chr_bomber_evolution.sc"
+	BlueExportName="bomber_evolution"
+	RedExportName="bomber_evolution_enemy"
+	Scale=52
+	ProjectileStartZ=4800
+	HealthBarOffsetY=0
+
+[Wizard_EV1]
+
+	Base="Wizard"
+	ClonedVersion="Wizard"
+	HealthBar="Shield_EV1"
+	SpawnEffect="Deploy_Wizard_Evolution"
+	AttackStartEffect="Evo_Wizard_Atk"
+	DeathEffect="Death_card_evolution_M"
+	CustomSpawnFilter="filter_card_evolution"
+	Scale=56
+	ShieldHitpoints=140
+	ShieldLostAction="Wizard_EV1_ShieldLost"
+	FileName="sc/chr_wizard_evolution.sc"
+	BlueShieldExportName="wizard1_shield"
+	RedShieldExportName="wizard1_red_shield"
+	OnStartingAction="Wizard_EV1_ShieldON"
+	PrestigeSWF=""
+	PrestigeExportName=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	PrestigeRedExportName=""
+	PrestigeRedExportName2=""
+	PrestigeRedExportName3=""
+
+
+[RoyalGiant_EV1]
+
+	Base="RoyalGiant"
+	Projectile="RoyalGiantProjectile_EV1"
+	PrestigeSWF=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	DeathEffect="Death_card_evolution_M"
+	SpawnEffect="Deploy_RoyalGiant_Evolution"
+	HealthBar="High_EV1"
+	AreaEffectOnHit="Freeze"
+	CustomSpawnFilter="filter_card_evolution"
+	OnAttackAction="RoyalGiant_EV1_PushBack"
+	ClonedVersion="RoyalGiant"
+	FileName="sc/chr_royalgiant_evolution.sc"
+	BlueExportName="royalgiant_evo"
+	RedExportName="enemy_royalgiant_evo"
+	Scale=78
+	DeployBaseAnimExportName="filter_deploy_unit_legendary"
+	ProjectileEffect="evo_royal_giant_projectile_fx"
+	AttackStartEffect=""
+
+
+[BattleRam_EV1]
+
+	Base="BattleRam"
+	ClonedVersion="BattleRam"
+	HealthBar="Medium_EV1"
+	Scale=50
+	PrestigeSWF=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	FileName="sc/chr_battle_ram_evolution.sc"
+	BlueExportName="battle_ram_evolution"
+	RedExportName="battle_ram_evolution_enemy"
+	OnStartChargingAction="BattleRam_EV1_PushBack"
+	DeathSpawnCharacter="Barbarian_EV1"
+	Kamikaze = false
+	KeepChargingAfterAttack = true
+	AttackPushBack = 2000
+	SpawnEffect="Deploy_BattleRam_Evolution"
+	ChargeEffect="evo_battleram_charge"
+	TargetedHitEffect=""
+	DeathEffect="battle_ram_evo_hit"
+	DamageEffectSpecial="battle_ram_evo_normal_hit"
+
+[Recruit_EV1]
+
+	Base="Recruit"
+	PrestigeSWF=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	DeathEffect="Death_card_evolution_M"
+	SpawnEffect="Deploy_Royal_Recruit_Evolution"
+	HealthBar="Shield_EV1"
+	DeployBaseAnimExportName="filter_deploy_unit_legendary"
+	ShieldLostAction="Recruit_EV1_StartCharge"
+	CustomSpawnFilter="filter_card_evolution"
+	ClonedVersion="Recruit"
+	ChargeEffect="evo_recruit_charge"
+	ChargeSpeedMultiplier=200
+	DamageSpecial=107
+	DamageEffectSpecial="prince_charge_hit"
+	FileName="sc/chr_royal_recruit_evolution.sc"
+	BlueExportName="royal_recruit_evolution"
+	BlueShieldExportName="royal_recruit_shield_evolution"
+	RedShieldExportName="royal_recruit_enemy_shield_evolution"
+	RedExportName="royal_recruit_enemy_evolution"
+	Scale=66
+
+[Bat_EV1]
+
+	Base="Bat"
+	Hitpoints=["%",150]
+	DeathEffect="Death_card_evolution_S"
+	SpawnEffect="Deploy_Bats_Evolution"
+	AttackStartEffect="Evo_Bats_Atk"
+	MoveEffect="Evo_Bats_Fly"
+	HealthBar="Small_EV1"
+	BuffAfterHitsCount=[1]
+	BuffAfterHitsTime=[1000]
+	BuffAfterHits=["BatsEV1_Heal"]
+	CustomSpawnFilter="filter_card_evolution"
+	PrestigeSWF=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	ClonedVersion="Bat"
+	BlueExportName="bats_evolution"
+	RedExportName="bats_evolution"
+	FileName="sc/chr_bats_evolution.sc"
+	Scale=50
+
+[Wallbreaker_EV1]
+
+	Base="Wallbreaker"
+	DeathEffect="Death_card_evolution_S"
+	MoveEffect="evo_wall_breaker_steps"
+	SpawnEffect="Deploy_Wall_Breaker_Evolution"
+	HealthBar="Small_EV1"
+	CustomSpawnFilter="filter_card_evolution"
+	PrestigeSWF=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	OnKilledAction="WallBreaker_EV1_SpawnMini"
+	Scale=64
+	Projectile="WallbreakerProjectile_EV1"
+	ClonedVersion="Wallbreaker"
+	BlueExportName="wall_breakers_evolution"
+	RedExportName="wall_breakers_evolution_enemy"
+	FileName="sc/chr_wall_breakers_evolution.sc"
+
+[Firecracker_EV1]
+
+	Base="Firecracker"
+	Projectile="FirecrackerProjectile_EV1"
+	ProjectileSpecial="ArcherArrow"
+	DeathEffect="Death_card_evolution_M"
+	SpawnEffect="Deploy_Firecracker_Evolution"
+	HealthBar="Small_EV1"
+	CustomSpawnFilter="filter_card_evolution"
+	FileName="sc/chr_firecracker_evolution.sc"
+	BlueExportName="evofirecracker"
+	RedExportName="evofirecracker_enemy"
+	Scale=42
+	PrestigeSWF=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	DeployBaseAnimExportName="filter_deploy_unit_legendary"
+	ClonedVersion="Firecracker"
+	ProjectileEffect="evo_firecracker_attack"
+
+[Archer_EV1]
+
+	Base="Archer"
+	PrestigeSWF=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	DeathEffect="Death_card_evolution_S"
+	SpawnEffect="Deploy_Archer_Evolution"
+	HealthBar="Small_EV1"
+	DeployBaseAnimExportName="filter_deploy_unit_legendary"
+	CustomSpawnFilter="filter_card_evolution"
+	ClonedVersion="Archer"
+	Scale=37
+	FileName="sc/chr_archer_evolution.sc"
+	BlueExportName="archer_evolution"
+	RedExportName="archer_evolution_enemy"
+	Projectile="Archer_EV1_Arrow"
+	SightRange=["%",120]
+	Range=["%",120]
+	SpecialAttackRangeForStats=4500
+	OnStartingAttackAction="Archer_EV1_AttackSelect"
+	AttackSequenceMode="None"
+	AttackSequence=[0,1]
+	Projectile2="Archer_EV1_ArrowDoubleDamage"
+	AttackStartEffect2="Evo_archer_area_crit"
+	ProjectileStartRadius=1000
+	ProjectileStartZ=1500
+
+
+[IceSpirits_EV1]
+
+	Base="IceSpirits"
+	Projectile="IceSpiritsProjectile_EV1"
+	PrestigeSWF=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	DeathEffect="Death_card_evolution_S"
+	SpawnEffect="Deploy_IceSpirit_Evolution"
+	HealthBar="Small_EV1"
+	DeployBaseAnimExportName="filter_deploy_unit_legendary"
+	CustomSpawnFilter="filter_card_evolution"
+	ClonedVersion="IceSpirits"
+	FileName="sc/chr_ice_spirit_evolution.sc"
+	BlueExportName="icespirit_evolution"
+	RedExportName="icespirit_evolution"
+	ContinuousEffect="Evolution_IceSpirit_Continuous_fx"
+	Scale=110
+	

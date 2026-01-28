@@ -1,0 +1,8 @@
+[GoblinBarrelSpell]
+	AlwaysResetAnimation=true
+
+[KingProjectile]
+	DamageScalingMode="KingTower"
+
+[TowerPrincessProjectile]
+	DamageScalingMode="PrincessTower"

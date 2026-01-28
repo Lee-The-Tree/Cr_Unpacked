@@ -1,0 +1,111 @@
+
+[King_PrincessTowers]
+    [[King_PrincessTowers.Objects]]
+    Data = "KingTower"
+    x = 18
+    y = 6
+    [[King_PrincessTowers.Objects]]
+    Data = "PrincessTower"
+    x = 7
+    y = 13
+
+    [[King_PrincessTowers.Objects]]
+    Data = "PrincessTower"
+    x = 29
+    y = 13
+
+[King_PrincessTowers2v2]
+    [[King_PrincessTowers2v2.Objects]]
+    Data = "KingTower"
+    x = 14
+    y = 6
+    [[King_PrincessTowers2v2.Objects]]
+    Data = "PrincessTower"
+    x = 7
+    y = 13
+
+[Heist]
+    [[Heist.Objects]]
+    Data = "HeistStorage"
+    x = 18
+    y = 6
+
+[King_CannonTowers]
+    [[King_CannonTowers.Objects]]
+    Data = "KingTower"
+    x = 18
+    y = 6
+    [[King_CannonTowers.Objects]]
+    Data = "Cannoneer"
+    x = 7
+    y = 13
+
+    [[King_CannonTowers.Objects]]
+    Data = "Cannoneer"
+    x = 29
+    y = 13
+
+[King_CannonTowers2v2]
+    [[King_CannonTowers2v2.Objects]]
+    Data = "KingTower"
+    x = 14
+    y = 6
+    [[King_CannonTowers2v2.Objects]]
+    Data = "Cannoneer"
+    x = 7
+    y = 13
+
+[King_KnifeTowers]
+    [[King_KnifeTowers.Objects]]
+    Data = "KingTower"
+    x = 18
+    y = 6
+    [[King_KnifeTowers.Objects]]
+    Data = "DaggerDuchess"
+    x = 7
+    y = 13
+
+    [[King_KnifeTowers.Objects]]
+    Data = "DaggerDuchess"
+    x = 29
+    y = 13
+
+[King_KnifeTowers2v2]
+    [[King_KnifeTowers2v2.Objects]]
+    Data = "KingTower"
+    x = 14
+    y = 6
+    [[King_KnifeTowers2v2.Objects]]
+    Data = "DaggerDuchess"
+    x = 7
+    y = 13
+
+[BattleGround_Spawnblocker]
+    [[BattleGround_Spawnblocker.Objects]]
+    Data = "BattleGround_Spawnblocker"
+    x = 18
+    y = 6
+    
+[GoblinQueen_SpawnAbility]
+    [[GoblinQueen_SpawnAbility.Objects]]
+    Data = "GoblinQueenTower"
+    x = 18
+    y = 6
+    [[GoblinQueen_SpawnAbility.Objects]]
+    Data = "GoblinQueenSecondaryTower"
+    x = 7
+    y = 13
+    [[GoblinQueen_SpawnAbility.Objects]]
+    Data = "GoblinQueenSecondaryTower"
+    x = 29
+    y = 13
+
+[GoblinQueen_SpawnAbility2v2]
+    [[GoblinQueen_SpawnAbility2v2.Objects]]
+    Data = "GoblinQueenTower"
+    x = 14
+    y = 6
+    [[GoblinQueen_SpawnAbility2v2.Objects]]
+    Data = "GoblinQueenSecondaryTower"
+    x = 7
+    y = 13

@@ -1,0 +1,10 @@
+
+[Royals]
+CardGroup = "Royals"
+NotAllowedSupportCards = ["GoblinQueen_SpawnAbility"]
+FilterModes = [0, 1, 2, 3, 4]
+
+[Goblins]
+CardGroup = "Goblins"
+NotAllowedSupportCards = ["King_PrincessTowers", "King_CannonTowers", "King_KnifeTowers"]
+FilterModes = [0, 1, 2, 3, 4, 5]

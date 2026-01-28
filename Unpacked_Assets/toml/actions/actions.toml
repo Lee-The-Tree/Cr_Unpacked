@@ -1,0 +1,459 @@
+
+[RoyalGiant_EV1_PushBack]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "EvoRoyalGiantPush_EV1"
+ParentGOAsSource=true
+
+[Recruit_EV1_StartCharge]
+ClassType="ActionSpawn"
+SpawnType = "BuffType"
+SpawnData = "RecruitsCharge_EV1"
+SpawnTime = 999999
+ParentGOAsSource=true
+
+[Knight_EV1_ProtectionVFX]
+ClassType="ActionPlayEffect"
+Effect = "evo_knight_shield"
+EffectFlags = "FollowParent,ParticlesFollowParent"
+
+[WaitForKingTowerActivation]
+ClassType = "ActionWaitToActivate"
+Condition = "king_tower_damaged() || coop_king_tower_damaged() || tower_destroyed() || coop_tower_destroyed()"
+GameTagsToSet = "INACTIVE"
+[WaitForKingTowerActivation.OnActivateAction]
+ClassType = "ActionWithDuration"
+ActionDuration = 3300
+GameTagsToSet = "ACTIVATING"
+NextAction = "KingTowerActivationEffect"
+
+[KingTowerActivationEffect]
+ClassType = "ActionFilter"
+Condition = "is_npc_battle()"
+[KingTowerActivationEffect.OnTrueAction]
+ClassType="ActionPlayEffect"
+Effect = "King_enemy_activate_training"
+[KingTowerActivationEffect.OnFalseAction]
+ClassType="ActionPlayEffect"
+Effect = "King_player_activate"
+
+[CloneAction]
+ClassType="ActionClone"
+OnClonedAction="SpawnCloneBufAction"
+SpawnDeployBaseAnim="filter_hologram"
+
+[SpawnCloneBufAction]
+ClassType="ActionSpawn"
+SpawnType = "BuffType"
+SpawnData = "Clone"
+SpawnTime = 500
+
+[Bats_EV1_HelingVFX]
+ClassType="ActionPlayEffect"
+Effect = "evolution_bats_heal"
+EffectFlags = "TargetEffect"
+
+[Spawn_ChampionGuardCharge]
+ClassType="ActionSpawnGuard"
+SpawnData = "ChampionGuard"
+TargetRadius=4000
+AppearBehindAtDistance = 2000
+PushBackStrength=2000
+PushBackRadius=2500
+DistanceProportinalPush=true
+ContinuosPushBack=true
+PushBackDamage=81
+ActionDelay=825
+HitFilter="PassiveForcedHitGroundCharacters"
+
+
+[LittlePrinceWaitGuard]
+ClassType="ActionWithDuration"
+ActionDuration=1500
+GameTagsToSet="NO_MOVE"
+[LittlePrinceWaitGuard.NextAction]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "DummySpawnLittlePrinceGuard"
+
+
+
+[LittlePrinceSpeedup1]
+ClassType="ActionSpawn"
+SpawnType="BuffType"
+SpawnData="LittlePrinceLvl1"
+SpawnTime=999999
+
+[LittlePrinceSpeedup2]
+ClassType="ActionSpawn"
+SpawnType="BuffType"
+SpawnData="LittlePrinceLvlMax"
+SpawnTime=999999
+NextAction="LittlePrinceChangeAnim_to_1"
+
+[PlayMaxedSpeedSFX]
+ClassType="ActionPlayEffect"
+Effect = "little_prince_maxed_speed"
+
+[LittlePrinceChangeAnim_to_0]
+ClassType="ActionSetAttackSequenceIndex"
+AttackIndex = 0
+
+[LittlePrinceChangeAnim_to_1]
+ClassType="ActionSetAttackSequenceIndex"
+AttackIndex = 1
+NextAction="PlayMaxedSpeedSFX"
+
+[LittlePrinceChangeAnim_to_2]
+ClassType="ActionSetAttackSequenceIndex"
+AttackIndex = 2
+
+[Archer_EV1_Attack1]
+ClassType="ActionSetAttackSequenceIndex"
+AttackIndex = 0
+
+[Archer_EV1_Attack2]
+ClassType="ActionSetAttackSequenceIndex"
+AttackIndex = 1
+
+[Archer_EV1_AttackSelect]
+ClassType="ActionFilter"
+Condition = "!target_in_range(4500)"
+OnTrueAction="Archer_EV1_Attack2"
+OnFalseAction="Archer_EV1_Attack1"
+
+[IceSpirits_Hit_EV1]
+ClassType="ActionSpawn"
+SpawnType = "BuffType"
+SpawnData = "IceSpirits_Target_EV1"
+SpawnTime = 6000
+
+[Valkyrie_EV1_Tornado]
+
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Valkyrie_MiniTornado_EV1"
+ParentGOAsSource=true
+
+[Valkyrie_EV1_Tornado.NextAction]
+ClassType="ActionSpawn"
+SpawnType = "BuffType"
+SpawnData = "Valkyrie_NotPushed_BUF"
+SpawnTime = 500
+
+
+[Zap_EV1_AfterStun]
+ClassType="ActionGroup"
+SubActions = ["Zap_EV1_SpawnBuff","Zap_EV1_SpawnBuff","Zap_EV1_SpawnBuff"]
+SubActionsDelay = [ 1500, 3000, 4500 ]
+
+[Zap_EV1_SpawnBuff]
+ClassType="ActionSpawn"
+SpawnType = "BuffType"
+SpawnData = "Zap_EV1_WithDamage"
+SpawnTime = 500
+AbortIfInstigatorDies = false
+
+[Zap_EV1_AfterStun_V2]
+ClassType="ActionGroup"
+SubActions = ["DummyZap_EV1_Visual","Zap_EV1_SpawnAOE_medium","Zap_EV1_SpawnAOE_large"]
+SubActionsDelay = [ 100, 1500, 3000 ]
+
+[Zap_EV1_SpawnAOE_medium]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Zap_EV1_SpawnAOE_medium"
+
+[Zap_EV1_SpawnAOE_large]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Zap_EV1_SpawnAOE_large"
+
+[DummyZap_EV1_Visual]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "DummyZap_EV1_Visual"
+
+[WallBreaker_EV1_SpawnMini]
+ClassType="ActionSpawn"
+SpawnType = "CharacterType"
+SpawnData = "Wallbreaker_mini"
+ParentGOAsSource=true
+
+[WallBreaker_EV1_SpawnMini.NextAction]
+ClassType="ActionSpawn"
+SpawnType = "ProjectileType"
+SpawnData = "WallbreakerBarrelExplosion_EV1"
+ParentGOAsSource=true
+
+[Tesla_EV1_AppearStun]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+ParentGOAsSource = true
+SpawnData = "Tesla_EV1_AppearStun"
+
+[Tesla_EV1_AppearStun.NextAction]
+ClassType="ActionPlayEffect"
+Effect = "Evo_Tesla_Appear_Pulse"
+
+[Tesla_EV1_SpawnBuff]
+ClassType="ActionSpawn"
+SpawnType = "BuffType"
+SpawnData = "Tesla_EV1_WithDamage"
+SpawnTime = 500
+AbortIfInstigatorDies = false
+
+[Tesla_EV1_Charging]
+ClassType="ActionPlayEffect"
+Effect = "Evo_Tesla_Idle_Particle"
+EffectFlags="Looping"
+ForceStopIfTrue="should_hide() == false"
+
+[BattleRam_EV1_PushBack]
+ClassType="ActionDamagingPushBack"
+PushBackStrength=2500
+PushBackRadius=1000
+PushToSide=true
+DistanceProportinalPush=false
+ContinuosPushBack=true
+PushBackDamage=100
+AffectInvisible=true
+FullPushBackCollisionCheck=true
+ActionDelay=825
+ForceStopIfTrue="CHARGING() == false"
+PushRadiusDirectionalOffset=800
+OnPushEffect="battle_ram_evo_push_compile"
+OnPushEffectMinInterval=1000
+GameObjectFilter="WeakPushbackHitGroundCharactersNotSame"
+
+[Wizard_EV1_ShieldLost]
+ClassType="ActionGroup"
+SubActions = ["Wizard_EV1_ShieldLostAoE"]
+SubActionsDelay=[0]
+AbortIfInstigatorDies=false
+
+[Wizard_EV1_ShieldLostAoE]
+ClassType="ActionSpawn"
+SpawnType="AreaEffectType"
+SpawnData="Wizard_EV1_ShieldLostExplosion"
+AbortIfInstigatorDies=false
+ParentGOAsSource=true
+
+[Wizard_EV1_RegainShieldTimer]
+ClassType="ActionWizardShieldRegainTimer"
+Duration=3000
+OnTimerDoneAction="Wizard_EV1_RegainShield"
+ResetCondition="TAKING_DAMAGE()"
+EffectTriggerDurations=[0, 1000, 2000]
+Effects=["Evo_Wizard_Shield_Stage1", "Evo_Wizard_Shield_Stage2", "Evo_Wizard_Shield_Stage3"]
+AbortIfInstigatorDies=false
+
+[Wizard_EV1_RegainShield]
+ClassType="ActionRegainShield"
+AbortIfInstigatorDies=false
+NextAction="Wizard_EV1_ShieldON"
+
+[Wizard_EV1_ShieldON]
+ClassType="ActionGroup"
+SubActions = ["Wizard_EV1_ShieldVFX"]
+SubActionsDelay=[100, 100]
+AbortIfInstigatorDies=false
+
+[Wizard_EV1_ShieldVFX]
+ClassType="ActionSpawn"
+SpawnType="BuffType"
+SpawnData="Wizard_EV1_ShieldVFX"
+AbortIfInstigatorDies=false
+SpawnTime=999999
+[Wizard_EV1_ShieldVFX.NextAction]
+ClassType="ActionPlayEffect"
+Effect = "Evo_wizard_burningAOE"
+EffectFlags = "FollowParent,ParticlesFollowParent,Looping,LinkLifeToActionLife"
+ForceStopIfTrue="!HAS_SHIELD()"
+
+[Wizard_EV1_Action_BurningAOE]
+ClassType="ActionSpawn"
+SpawnType="AreaEffectType"
+SpawnData="Wizard_EV1_BurningAOE"
+AbortIfInstigatorDies=true
+ParentGOAsSource=true
+
+
+[GoblinBarrel_EV1_CreateDecoy]
+ClassType="ActionMirroredExtraSpell"
+Projectile="GoblinBarrelSpell_EV1_Decoy"
+
+
+[FreezeTimerAction]
+ActionDelay=10000
+ClassType="ActionSpawn"
+SpawnType = "BuffType"
+SpawnData = "Event_Freeze"
+SpawnTime = 999999
+
+[WarmUpAction]
+ClassType="ActionWithDuration"
+ActionDuration=100
+GameTagsToSet="STOP_FREEZE"
+
+
+[LoveBuffAOEAction]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "LoveBuffAOE"
+ParentGOAsSource=true
+
+
+[GlobalLightningSpawnCharge2]
+ActionDelay=5000
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Lightning_Charge2"
+
+[GlobalLightning]
+ActionDelay=5000
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Lightning"
+
+[SpellCauldron_SpawnAction]
+ClassType = "ActionSelect"
+SubActions = ["GlobalLightning_Setup", "GlobalRage_Setup", "GlobalHeal_Setup", "GlobalFreeze_Setup","GlobalInvisibility_Setup","GlobalClone_Setup"]
+Condition = "rand(6)"
+
+[GlobalLightning_Setup]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Lightning_Setup"
+
+[GlobalLightning_Action]
+ActionDelay=1000
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Lightning"
+ParentGOAsSource=true
+
+
+[GlobalRage_Setup]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Rage_Setup"
+
+[GlobalRage_Action]
+ActionDelay=500
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Rage"
+ParentGOAsSource=true
+
+
+[GlobalHeal_Setup]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Heal_Setup"
+
+[GlobalHeal_Action]
+ActionDelay=500
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Heal"
+ParentGOAsSource=true
+
+
+[GlobalFreeze_Setup]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Freeze_Setup"
+
+[GlobalFreeze_Action]
+ActionDelay=500
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Freeze"
+ParentGOAsSource=true
+
+[GlobalInvisibility_Setup]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Invisibility_Setup"
+
+[GlobalInvisibility_Action]
+ActionDelay=500
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Invisibility"
+ParentGOAsSource=true
+
+[GlobalClone_Setup]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "Event_Global_Clone_Setup"
+
+[GlobalClone_Action]
+ActionDelay=500
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "GlobalClone"
+
+[goblin_cage_shake_when_target]
+ClassType = "ActionPlayAnimationIfHasTarget"
+TargetStartFrame = "shake_start"
+TargetEndFrame = "shake_end"
+IdleStartFrame = "idle_start"
+IdleEndFrame = "idle_stop"
+Priority = 50
+
+
+[TriWizardSpawn]
+ClassType="ActionGroup"
+SubActions = ["ElectroWizardAOE", "IceWizardAOE"]
+AbortIfInstigatorDies=false
+SubActionsDelay=[300,300]
+
+[ElectroWizardAOE]
+ClassType = "ActionSpawnToLocation"
+SpawnType = "AreaEffectType"
+SpawnData = "ElectroWizardZap"
+RelativeX = 5
+RelativeY = 0
+
+[IceWizardAOE]
+ClassType = "ActionSpawnToLocation"
+SpawnType = "AreaEffectType"
+SpawnData = "IceWizardCold"
+RelativeX = -5
+RelativeY = 0
+
+[TriWizardCharSpawn]
+ClassType="ActionGroup"
+SubActions = ["ElectroWizardChar", "IceWizardChar"]
+AbortIfInstigatorDies=false
+SubActionsDelay=[0,0]
+
+[ElectroWizardChar]
+ClassType = "ActionSpawnToLocation"
+SpawnType = "CharacterType"
+SpawnData = "ElectroWizard"
+RelativeX = 5
+RelativeY = 0
+
+[IceWizardChar]
+ClassType = "ActionSpawnToLocation"
+SpawnType = "CharacterType"
+SpawnData = "IceWizard"
+RelativeX = -5
+RelativeY = 0
+
+
+[SpawnBrawler]
+ActionDelay=500
+ClassType="ActionSpawn"
+SpawnType = "CharacterType"
+SpawnData = "GoblinBrawlerDouble"
+ParentGOAsSource=true
+
+[ImmuneToWeakPushback]
+ClassType="ActionSpawn"
+SpawnType = "BuffType"
+SpawnData = "ImmuneToWeakPushback"
+SpawnTime = 999999

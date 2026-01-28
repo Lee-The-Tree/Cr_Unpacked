@@ -1,0 +1,66 @@
+
+[King_PrincessTowers]
+TID = "TID_SUPPORT_CARD_PRINCESS_TOWERS"
+TID_INFO = "TID_SUPPORT_CARD_INFO_PRINCESS_TOWERS"
+IconSWF = "sc/ui_support_card_princess.sc"
+IconExportName = "support_card_princess"
+Rarity = "Common"
+SpawnGroup = "King_PrincessTowers"
+SpawnGroup2v2 = "King_PrincessTowers2v2"
+NotVisible = false
+NotInUse = false
+UnlockArena = "TrainingCamp"
+HighresImageFilename = "image/chr_support_cards/support_card_hires_princess.png"
+StatCharacter = "PrincessTower"
+
+[King_CannonTowers]
+TID = "TID_SUPPORT_CARD_CANNONEER"
+TID_INFO = "TID_SUPPORT_CARD_INFO_CANNONEER"
+IconSWF = "sc/ui_support_card_cannoneer.sc"
+IconExportName = "support_card_cannoneer"
+Rarity = "Epic"
+SpawnGroup = "King_CannonTowers"
+SpawnGroup2v2 = "King_CannonTowers2v2"
+NotVisible = false
+NotInUse = false
+UnlockArena = "Arena8"
+HighresImageFilename = "image/chr_support_cards/support_card_hires_cannoneer.png"
+StatCharacter = "Cannoneer"
+
+[King_KnifeTowers]
+TID = "TID_SUPPORT_CARD_KNIFE_THROWER"
+TID_INFO = "TID_SUPPORT_CARD_INFO_KNIFE_THROWER"
+IconSWF = "sc/ui_support_card_knife_thrower.sc"
+IconExportName = "support_card_knife_thrower"
+Rarity = "Legendary"
+SpawnGroup = "King_KnifeTowers"
+SpawnGroup2v2 = "King_KnifeTowers2v2"
+NotVisible = false
+NotInUse = false
+UnlockArena = "Arena_Electric"
+StatCharacter = "DaggerDuchess"
+HighresImageFilename = "image/chr_support_cards/support_card_hires_knives_thrower.png"
+
+[GoblinQueen_SpawnAbility]
+TID = "TID_SUPPPORT_CARD_GOBLIN_QUEEN_SPAWN"
+TID_INFO = "TID_SUPPPORT_CARD_INFO_GOBLIN_QUEEN_SPAWN"
+IconSWF = "sc/ui_support_card_baby_spawn.sc"
+IconExportName = "support_card_baby_spawn"
+Rarity = "Common"
+SpawnGroup = "GoblinQueen_SpawnAbility"
+SpawnGroup2v2 = "GoblinQueen_SpawnAbility2v2"
+NotVisible = false
+NotInUse = false
+UnlockArena = "GoblinArena1"
+StatCharacter = "GoblinQueenSecondaryTower"
+HighresImageFilename = "image/chr_support_cards/support_card_hires_baby_spawn.png"
+HighresImageIncludesTower = true
+AbilityContainerFilename = "sc/ui.sc"
+AbilityContainerExportName = "support_card_type_goblin_ability"
+AbilityIconFilename = "sc/ui_spells.sc"
+AbilityIconExportName = "icon_goblin_queen_ability_baby"
+AbilityTID = "TID_SUPPORT_CARD_SPAWN_ABILITY"
+AbilityInfoTID = "TID_SUPPORT_CARD_SPAWN_ABILITY_INFO"
+AbilityStatCharacter = "BabyGoblin"
+AbilityStatCharacterSpawnCount = 8
+AbilityActivationRule = "GoblinQueen_AbilityActivator"

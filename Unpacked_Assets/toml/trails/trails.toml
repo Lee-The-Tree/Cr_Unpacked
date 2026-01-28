@@ -1,0 +1,54 @@
+[Default]
+	Enabled = true
+	TID = "TID_TRAIL_ROYALS"
+	GameMode = "Ladder"
+	GameModeTutorial = "PvE_Tutorial"
+	TrophyRoadStorageKey = ""
+	DeckStorageKey = "Royals"
+	ThemeConfiguration = "RoyalRoad"
+	CollectionLens = "Royals"
+	TrophyRoadName = "Default"
+	EnablerType = "Always"
+	OrderIndex = 0
+	ChestOrder = ""
+	ShowFriends = true
+	BotsEnabled = true
+	ArenaCountTID="TID_ARENA_CAPS"
+
+[GoblinRoadPlatform]
+	Enabled = true
+	TID = "TID_TRAIL_GOBLINS"
+	GameMode = "Goblin_Ladder"
+	GameModeTutorial = "GoblinTrail_Tutorial"
+	TrophyRoadStorageKey = "goblin-road"
+	DeckStorageKey = "Goblins"
+	ThemeConfiguration = "GoblinRoad"
+	CollectionLens = "Goblins"
+	TrophyRoadName = "GoblinRoad"
+	EnablerType = "Chronos"
+	OrderIndex = 1
+	StarterDeck = "GoblinJourney_StarterDeck"
+	ChestOrder = "GoblinCycle"
+	BotsEnabled = true
+	TutorialKey = "GoblinRoad_Tutorial"
+	TutorialNPCs = ["GoblinTutorial1"]
+	UnlockArenaIndex = 12
+	ShowFriends = true
+	ArenaCountTID="TID_GOBLIN_ARENA_CAPS"
+
+[PathOfLegends]
+	Enabled = true
+	TID = "TID_TRAIL_POL"
+	GameMode = "Ranked1v1"
+	TrophyRoadStorageKey = ""
+	DeckStorageKey = "PathOfLegends"
+	ThemeConfiguration = "PathOfLegends"
+	CollectionLens = "Royals"
+	TrophyRoadName = ""
+	EnablerType = "Always"
+	OrderIndex = 2
+	ChestOrder = ""
+	BotsEnabled = false
+	UnlockArenaIndex = 15
+	ShowFriends = true
+	ArenaCountTID="TID_ARENA_CAPS"

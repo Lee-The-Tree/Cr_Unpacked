@@ -1,0 +1,10 @@
+"Name","HorAlign","Order","ExtraHeight","VerOffset"
+"string","string","int","int","int"
+"button_daily_tasks","Left",0,0,0
+"button_dailylogin","Left",1,0,0
+"button_giveaway","Left",2,0,0
+"button_season_shop","Right",0,0,0
+"button_piggy_bank","Right",1,0,0
+"button_event_notification","Right",2,0,0
+"button_tencent","Right",10,0,0
+"button_chain_offer","Left",10,0,0

@@ -1,0 +1,121 @@
+[BUILDING.GoblinRocketSilo]
+Rarity = "Common"
+IsBuilding = true
+DeployTime = 1000
+Hitpoints = 781
+SightRange = 25000
+Range = 25000
+FileName = "sc/effects.sc"
+BlueExportName = "rocketSilo_01"
+RedExportName = "rocketSilo_01"
+ShadowScaleX = 50
+ShadowScaleY = 30
+ShadowY = -15
+ShadowSkew = 25
+DeathEffect = "Cannon_die"
+SpawnEffect = "Cannon_deploy"
+ContinuousEffect = "Rocket_Silo_1"
+DamageExportName = "filter_damage"
+Scale = 120
+CollisionRadius = 600
+TID = "TID_BUILDING_CANNON"
+OnStartingAction = "GoblinRocketSilo_StageSwitcher"
+
+[ACTION.GoblinRocketSilo_StageSwitcher]
+ClassType="ActionGroup"
+SubActions = ["GoblinRocketSilo_stage1", "GoblinRocketSilo_stage2"]
+AbortIfInstigatorDies=false
+SubActionsDelay=[6000,12000]
+
+
+[ACTION.GoblinRocketSilo_stage1]
+ClassType="ActionGroup"
+SubActions = ["GoblinRocketSilo_effect1", "GoblinRocketSilo_object1"]
+AbortIfInstigatorDies=true
+SubActionsDelay=[0,200]
+
+[ACTION.GoblinRocketSilo_effect1]
+ClassType="ActionPlayEffect"
+Effect = "rocketSilo_Change"
+
+[ACTION.GoblinRocketSilo_object1]
+ClassType = "ActionChangeGameObjectData"
+NewCharacterData = "GoblinRocketSilo1"
+
+[BUILDING.GoblinRocketSilo1]
+Rarity = "Common"
+IsBuilding = true
+Hitpoints = 781
+FileName = "sc/effects.sc"
+BlueExportName = "rocketSilo_02"
+RedExportName = "rocketSilo_02"
+ShadowScaleX = 55
+ShadowScaleY = 35
+ShadowY = -18
+ShadowSkew = 25
+ContinuousEffect = "Rocket_Silo_2"
+DamageExportName = "filter_damage"
+DeathEffect = "Cannon_die"
+SpawnEffect = "rocketSilo_Change"
+Scale = 120
+CollisionRadius = 600
+
+[ACTION.GoblinRocketSilo_stage2]
+ClassType="ActionGroup"
+SubActions = ["GoblinRocketSilo_effect2", "GoblinRocketSilo_object2"]
+AbortIfInstigatorDies=true
+SubActionsDelay=[0,0]
+
+[ACTION.GoblinRocketSilo_effect2]
+ClassType="ActionPlayEffect"
+Effect = "rocketSilo_Change"
+
+[ACTION.GoblinRocketSilo_object2]
+ClassType = "ActionChangeGameObjectData"
+NewCharacterData = "GoblinRocketSilo2"
+
+[BUILDING.GoblinRocketSilo2]
+Rarity = "Common"
+IsBuilding = true
+Scale = 120
+Hitpoints = 781
+SightRange = 25000
+Range = 25000
+HitSpeed = 1000
+Kamikaze = true
+Projectile = "GoblinRocketSpell"
+AttacksGround = true
+TargetOnlyKingTower = true
+FileName = "sc/effects.sc"
+BlueExportName = "rocketSilo_03"
+RedExportName = "rocketSilo_03"
+ShadowScaleX = 50
+ShadowScaleY = 30
+ShadowY = -15
+ShadowSkew = 25
+ContinuousEffect = "Rocket_Silo_3"
+DeathEffect = "Cannon_die"
+DamageExportName = "filter_damage"
+CollisionRadius = 600
+ProjectileStartRadius = 1000
+ProjectileStartZ = 2500
+
+[PROJECTILE.GoblinRocketSpell]
+Rarity = "Common"
+Speed = 350
+FileName = "sc/effects.sc"
+ExportName = "projectile_rocket"
+ShadowExportName = "projectile_shadow_rocket"
+HitEffect = "Rocket_explosion"
+Scale = 150
+Damage = 625
+Pushback = 1800
+Radius = 2000
+AoeToAir = true
+AoeToGround = true
+OnlyEnemies = true
+Gravity = 50
+TrailEffect = "Rocket_Silo_Emitter"
+use360Frames = true
+DeflectBehaviour = "UseSpellsTowerDamageMul"
+DeflectRadius = 1000

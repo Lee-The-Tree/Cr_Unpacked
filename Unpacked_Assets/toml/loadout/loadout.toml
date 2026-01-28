@@ -1,0 +1,81 @@
+
+[NoSupportCards]
+DefaultPlayableCards = 8
+MaxSupportCards = 0
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+[[NoSupportCards.MaxEvoSlots]]
+Level = 0
+Slots = 0
+[[NoSupportCards.MaxEvoSlots]]
+Level = 7
+Slots = 1
+[[NoSupportCards.MaxEvoSlots]]
+Level = 54
+Slots = 2
+[[NoSupportCards.MaxPerRarity]]
+Rarity = "Champion"
+Max = 1
+
+[NoSupportCards_Combined]
+DefaultPlayableCards = 32
+MaxSupportCards = 0
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+[[NoSupportCards_Combined.MaxEvoSlots]]
+Level = 0
+Slots = 0
+[[NoSupportCards_Combined.MaxEvoSlots]]
+Level = 7
+Slots = 1
+[[NoSupportCards_Combined.MaxEvoSlots]]
+Level = 54
+Slots = 2
+[[NoSupportCards_Combined.MaxPerRarity]]
+Rarity = "Champion"
+Max = 1
+
+[Default_Event]
+MaxSupportCards = 1
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+[[Default_Event.MaxPerRarity]]
+Rarity = "Champion"
+Max = 1
+
+[Royals]
+DefaultPlayableCards = 8
+MaxSupportCards = 1
+LeaderNameTID = "TID_KINGS_TOWER"
+LeaderHighresImageFilename = "image/chr/chr_king.png"
+[[Royals.MaxEvoSlots]]
+Level = 0
+Slots = 0
+[[Royals.MaxEvoSlots]]
+Level = 7
+Slots = 1
+[[Royals.MaxEvoSlots]]
+Level = 54
+Slots = 2
+[[Royals.MaxPerRarity]]
+Rarity = "Champion"
+Max = 1
+
+[Goblins]
+DefaultPlayableCards = 8
+MaxSupportCards = 1
+LeaderNameTID = "TID_GOBLIN_QUEENS_TOWER"
+LeaderHighresImageFilename = "image/chr_goblin_faction/chr_goblin_queen.png"
+
+[[Goblins.MaxEvoSlots]]
+Arena = "GoblinArena1"
+Slots = 0
+[[Goblins.MaxEvoSlots]]
+Arena = "GoblinArena2"
+Slots = 1
+[[Goblins.MaxEvoSlots]]
+Arena = "GoblinArena4"
+Slots = 2
+[[Goblins.MaxPerRarity]]
+Rarity = "Champion"
+Max = 1

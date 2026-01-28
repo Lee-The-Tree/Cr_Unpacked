@@ -1,0 +1,87 @@
+
+[SkeletonDuplication_EV1]
+
+	Rarity = "Common"
+	MarkEffect = "Healing"
+	SpawnNumber = 1
+	SpawnInterval = 50
+	SpawnObject = "Skeleton_EV1"
+	SpawnLimit = 1
+	SpawnerAliveRequired = true
+
+[Barbarian_EVO_Rage]
+
+	Rarity = "Common"
+	HitSpeedMultiplier = 135
+	SpeedMultiplier = 135
+	Effect = "Spell_rage_hit_effect"
+	FilterFile = "sc/effects.sc"
+	FilterExportName = "filter_rage"
+	MarkEffect = "Healing"
+	AudioPitchModifier = 80
+	Scale = 105
+
+[FirecrackerFireworks_EV1]
+
+	Rarity = "Common"
+	CrownTowerDamagePercent = -70
+	DamagePerSecond = 20
+	HitFrequency = 250
+	SpeedMultiplier = -15
+	Effect = "PoisonSteam"
+	FilterExportName = "filter_damage"
+
+[RecruitsCharge_EV1]
+
+	Rarity = "Common"
+	OverrideChargeRange = 150
+
+[Knight_Fortify_EV1]
+
+	Rarity = "Common"
+	DamageReduction = 60
+	OnDamageReductionAction = "Knight_EV1_ProtectionVFX"
+
+[BatsEV1_Heal]
+
+	Rarity = "Common"
+	HitFrequency = 500
+	HealPerSecond = 30
+	AllowedOverHealPerc = 200
+	FilterFile = "sc/effects.sc"
+	FilterExportName = "filter_heal"
+	ContinuousEffect = "healer_heal_effect"
+	OnStartAction = "Bats_EV1_HelingVFX"
+
+[Valkyrie_NotPushed_BUF]
+	Rarity = "Rare"
+	GameTagsToSet="NO_PUSHED_BY_ENEMY"
+
+[Valkyrie_MiniTornado_EV1]
+	Base = "Tornado"
+	Rarity = "Rare"
+	AttractPercentage = 300
+	DamagePerSecond = 100
+	HitFrequency = 400
+
+[Zap_EV1_WithDamage]
+	Base = "ZapFreeze"
+	DamagePerSecond = 75
+	CrownTowerDamagePercent = -70
+	HitFrequency=-1
+
+[Tesla_EV1_WithDamage]
+	Rarity = "Common"
+	TID="TID_TESLABUFF_PULSE"
+	HitSpeedMultiplier = -100
+	SpeedMultiplier = -100
+	SpawnSpeedMultiplier = -100
+	FilterFile = "sc/effects.sc"
+	FilterExportName = "filter_cold"
+	DamagePerSecond = 58
+	CrownTowerDamagePercent = -70
+	HitFrequency=-1
+
+[Wizard_EV1_ShieldVFX]
+	Rarity="Rare"
+	AliveIfTrue="HAS_SHIELD()"

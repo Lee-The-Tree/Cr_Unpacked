@@ -1,0 +1,236 @@
+
+[DummySpawnLittlePrinceGuard]
+OnStartingAction="Spawn_ChampionGuardCharge"
+
+
+[BoostAOE_Event_LoveBuff]
+	Rarity="Epic"
+	LifeDuration=15000
+	Radius=1000
+    ScaledEffect="Boost_Object_LoveBuff"
+    HitSpeed=300
+    NoEffectToCrownTowers=true
+    Buff="Event_LoveBuff"
+    BuffTime=15000
+    BuffNumber=1
+    HitsGround=true
+    HitsAir=true
+    Boost=true
+
+[LoveBuffAOE]
+	Rarity="Epic"
+	LifeDuration=15000
+	Radius=3000
+    HitEffect="Love_Buff_AOE_hit"
+    HitSpeed=3000
+    HitSpeedOffset=2500
+    NoEffectToCrownTowers=true
+    Buff="LoveCharm"
+    BuffTime=4000
+    BuffNumber=1
+    OnlyEnemies=true
+    HitsGround=true
+    HitsAir=true
+    FollowBehaviour="FollowParent"
+
+
+[Event_Global_Lightning_Charge1]
+	Rarity="Epic"
+    OnStartingAction="GlobalLightningSpawnCharge2"
+    LoopingEffect="GlobalLightning_Charging1"
+    LifeDuration=5000
+
+[Event_Global_Lightning_Charge2]
+	Rarity="Epic"
+    OnStartingAction="GlobalLightning"
+    LoopingEffect="GlobalLightning_Charging2"
+    LifeDuration=5000
+
+[Event_Global_Lightning]
+	Rarity="Epic"
+	LifeDuration=3000
+	Radius=40000
+    HitSpeed=950
+    HitBiggestTargets=true
+    NoEffectToCrownTowers=true
+    LoopingEffect="GlobalLightning_deploy"
+    Projectile="LighningSpell"
+    IgnoreBuildings=true
+    HitsGround=true
+    HitsAir=true
+    ProjectileStartHeight=10
+
+[Event_Global_Lightning_Setup]
+    OnStartingAction="GlobalLightning_Action"
+    LoopingEffect="GlobalLightning_Charging2"
+    LifeDuration=1000
+
+[Event_Global_Rage_Setup]
+    OnStartingAction="GlobalRage_Action"
+    LoopingEffect="Spell_rage_effect_small"
+    LifeDuration=500
+
+[Event_Global_Heal_Setup]
+    OnStartingAction="GlobalHeal_Action"
+    LoopingEffect="Global_Healing_Setup"
+    LifeDuration=500
+
+[Event_Global_Freeze_Setup]
+    OnStartingAction="GlobalFreeze_Action"
+    LoopingEffect="Global_Freeze_Setup"
+    LifeDuration=500
+
+[Event_Global_Invisibility_Setup]
+    OnStartingAction="GlobalInvisibility_Action"
+    ScaledEffect="Invisibilty_Fog_Setup"
+    LifeDuration=500
+
+[Event_Global_Clone_Setup]
+    OnStartingAction="GlobalClone_Action"
+    ScaledEffect="Global_Clone_Setup"
+    LifeDuration=500
+
+[Event_Global_Rage]
+	Rarity="Epic"
+	LifeDuration=8000
+	Radius=40000
+    LoopingEffect="GlobalRage_mode"
+    HitSpeed=50
+    Buff="SuperRage"
+    BuffTime=500
+    CapBuffTimeToAreaEffectTime=true
+    BuffNumber=1
+    OnlyOwnTroops=true
+    HitsGround=true
+    HitsAir=true
+
+[Event_Global_Heal]
+	Rarity="Epic"
+	LifeDuration=8000
+	Radius=40000
+    LoopingEffect="Global_Healing"
+    HitSpeed=50
+    Buff="Heal"
+    BuffTime=500
+    CapBuffTimeToAreaEffectTime=true
+    IgnoreBuildings=true
+    BuffNumber=1
+    OnlyOwnTroops=true
+    HitsGround=true
+    HitsAir=true
+
+[Event_Global_Freeze]
+	Rarity="Epic"
+	LifeDuration=6000
+	Radius=40000
+    LoopingEffect="Global_Freeze_blizzard"
+    HitSpeed=50
+    Buff="Freeze"
+    BuffTime=500
+    CapBuffTimeToAreaEffectTime=true
+    BuffNumber=1
+    OnlyEnemies=true
+    HitsGround=true
+    HitsAir=true
+
+[Event_Global_Invisibility]
+	Rarity="Epic"
+	LifeDuration=6000
+	Radius=40000
+    LoopingEffect="Invisibilty_Fog"
+    HitSpeed=50
+    Buff="Invisibility"
+    BuffTime=500
+    CapBuffTimeToAreaEffectTime=true
+    IgnoreBuildings=true
+    BuffNumber=1
+    OnlyOwnTroops=true
+    HitsGround=true
+    HitsAir=true
+
+[TriWizardSpawn]
+    OnStartingAction="TriWizardSpawn"
+
+[DarkMagicAOE]
+    Rarity = "Epic"
+	LifeDuration = 4900
+	Radius = 2606
+	HitSpeed = -1        
+    Damage=100 
+	OnlyEnemies = true
+	HitsGround = false
+	HitsAir = false
+
+[DarkMagicAOE.OnStartingAction]
+    ClassType="ActionGroup"
+    SubActionsDelay = [ 0, 500, 4900]
+
+[[DarkMagicAOE.OnStartingAction.SubActions]]
+	ClassType="ActionPlayEffect"
+    Effect="PaoloFirstEffectEverIntro"
+
+[[DarkMagicAOE.OnStartingAction.SubActions]]
+    ClassType="ActionLaserBall"
+    DetectionRadius=2606
+    FirstHitDelay=1000
+    HitFrequency=1300
+    MaxUnitPerActionList = [1,4]
+    MainEffectList = [ "PaoloFirstEffectEver" ]
+    HitFilter="ForcedCharacterTargets"
+
+
+[[DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList]]
+    ClassType="ActionSpawn"
+    SpawnType="BuffType"
+    SpawnTime=100
+    [DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList.SpawnData]
+        Name="DarkMagicAOE_Damage_lv3"
+        Rarity = "Epic"	
+	    DamagePerSecond = 3400
+        CrownTowerDamagePerHit = 30  
+	    HitFrequency = 100
+        AddAsIndividualBuff=true
+        HitEffect="PaoloFirstEffectEverStrong"
+
+[DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList.NextAction]
+    ClassType="ActionPlayEffect"
+    Effect="Paolo_zap_effect3"
+
+[[DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList]]
+    ClassType="ActionSpawn"
+    SpawnType="BuffType"
+    SpawnTime=100
+    [DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList.SpawnData]
+        Name="DarkMagicAOE_Damage_lv2"
+        Rarity = "Epic"	
+	    DamagePerSecond = 1000
+        CrownTowerDamagePerHit = 15  
+	    HitFrequency = 100
+        AddAsIndividualBuff=true
+        HitEffect="PaoloFirstEffectEverMedium"
+
+[DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList.NextAction]
+    ClassType="ActionPlayEffect"
+    Effect="Paolo_zap_effect2"
+
+[[DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList]]
+    ClassType="ActionSpawn"
+    SpawnType="BuffType"
+    SpawnTime=100
+    [DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList.SpawnData]
+        Name="DarkMagicAOE_Damage_lv1"
+        Rarity = "Epic"	
+	    DamagePerSecond = 300
+        CrownTowerDamagePerHit = 10  
+	    HitFrequency = 100
+        AddAsIndividualBuff=true
+        HitEffect="PaoloFirstEffectEverLow"
+
+[DarkMagicAOE.OnStartingAction.SubActions.OnDetectedUnitActionList.NextAction]
+    ClassType="ActionPlayEffect"
+    Effect="Paolo_zap_effect"
+    
+
+[[DarkMagicAOE.OnStartingAction.SubActions]]
+	ClassType="ActionPlayEffect"
+    Effect="PaoloFirstEffectEverOutro"

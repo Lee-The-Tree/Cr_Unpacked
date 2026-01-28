@@ -1,0 +1,275 @@
+"Name","EndCondition","KillChildWavesOnEnd","ActionOrder","ActionType","ActionArgString","ActionIsEnabled","ActionStartCondition","ActionSpawnCount","ActionSpawnX","ActionSpawnY","ActionSpawnDelay","ActionSpawnLevel"
+"String","String","String","String","StringArray","StringArray","StringArray","StringArray","StringArray","StringArray","StringArray","StringArray","StringArray"
+"Tutorial1","false","false","Sequential","Spawn","Skeletons","true","time_in_line >= 2500",1,3500,7500,0,1
+,,,,"Spawn","Goblins","true","time_in_line >= 50",1,6000,6000,0,1
+,,,,"SpawnWaveStandalone","Tutorial1Repeat","true","true",,,,,
+,,,,,,,,,,,,
+"Tutorial1Repeat","false","false","Sequential","Spawn","Skeletons","true","time_in_line >= 12500",1,3500,7500,0,1
+,,,,"Spawn","Skeletons","true","time_in_line >= 12500",1,10000,7500,0,1
+,,,,"RestartWave",,"true","true",,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+"Tutorial2","false","false","Sequential","Spawn","Goblins","true","time_in_line >= 3000",1,4000,7000,0,1
+,,,,"Spawn","Knight","true","time_in_line >= 10000",1,6000,8000,0,1
+,,,,"Spawn","Archer","true","true",1,6000,8000,0,1
+,,,,"Spawn","Goblins","true","time_in_line >= 15000",1,4000,7000,0,1
+,,,,"RestartWave",,"true","time_in_line >= 7000",,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+"MainClanBoatAttack","false","false","Sequential","None","VAR1 == time to wait per elixir for live towers (spawn-on-hit mode)","true","true",,,,,
+,,,,"None","VAR2 == time to wait per elixir for broken towers","true","true",,,,,
+,,,,"None","VAR3 == damage hp per elixir for live towers (spawn-on-dmg mode)","true","true",,,,,
+,,,,"None","VAR4 == number of towers destroyed (during this run)",,,,,,,
+,,,,"SetVar1",,"true","true",600,,,,
+,,,,"SetVar2",,"true","true",3000,,,,
+,,,,"SetVar3",,"true","true",200,,,,
+,,,,"SetVar4",,"true","true",0,,,,
+,,,,"LogInfo","Spawn safe 1","true","true",,,,,
+,,,,"SetWaveVar3",,"true","true",1,,,,
+,,,,"SpawnWaveChild","MainClanBoatAttackTower","true","true",,,,,
+,,,,"DefenseWaveDone",,"true","true",,,,,
+,,,,"LogInfo","Spawn safe 2","true","true",,,,,
+,,,,"SetWaveVar3",,"true","true",2,,,,
+,,,,"SpawnWaveChild","MainClanBoatAttackTower","true","true",,,,,
+,,,,"DefenseWaveDone",,"true","true",,,,,
+,,,,"LogInfo","Spawn safe 3","true","true",,,,,
+,,,,"SetWaveVar3",,"true","true",3,,,,
+,,,,"SpawnWaveChild","MainClanBoatAttackTower","true","true",,,,,
+,,,,"DefenseWaveDone",,"true","true",,,,,
+,,,,"None",,"true","child_waves_alive < 3",,,,,
+,,,,"LogInfo","1 TOWER KILLED!","true","true",,,,,
+,,,,"SetVar1",,"true","true",600,,,,
+,,,,"None",,"true","child_waves_alive < 2",,,,,
+,,,,"LogInfo","2 TOWERS KILLED!","true","true",,,,,
+,,,,"SetVar1",,"true","true",600,,,,
+,,,,"None",,"true","child_waves_alive < 1",,,,,
+,,,,"LogInfo","ALL TOWERS KILLED!","true","true",,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+"MainClanBoatAttackTower","false","false","Sequential","SpawnDestroyedTower","ClanWarsTowerXbowDestroyedAtStart","tower_hp(wave_var3-1) <= 0","true","wave_var3-1",,,,
+,,,,"EndWave",,"tower_hp(wave_var3-1) <= 0","true",,,,,
+,,,,"SetWaveVar2",,"true","true","tower_hp(wave_var3-1)",,,,
+,,,,"None","NOTE! Only one of SPAWNONDMG and SPAWNONHIT should be enabled!","true","true",,,,,
+,,,,"SpawnWaveChild","MainClanBoatAttackRevengeTower_SPAWNONDMG","false","true",,,,,
+,,,,"SpawnWaveChild","MainClanBoatAttackRevengeTower_SPAWNONHIT","true","true",,,,,
+,,,,"None",,"true","child_waves_alive < 1",,,,,
+,,,,"LogInfo","Tower $WAVE_VAR3$ broken, continuous spawn!","true","true",,,,,
+,,,,"GivePlayerElixir",,"true","true",10,"wave_var3-1",,,
+,,,,"TriggerNextElixirRate",,"true","true",,,,,
+,,,,"SpawnDestroyedTower","ClanWarsTowerXbowDestroyedSpawn","true","true","wave_var3-1",,,,
+,,,,"SpawnWaveChild","MainClanBoatAttackBrokenTower","true","true",,,,,
+,,,,"TriggerBonusTime",,"true","true",,,,,
+,,,,"None","**PAUSE GAME IF FIRST TOWER**","true","true",,,,,
+,,,,"SetVar4",,"true","true","var4+1",,,,
+,,,,"PauseLogic",,"Var4==1","true",4000,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+"MainClanBoatAttackRevengeTower_SPAWNONDMG","tower_hp(wave_var3-1) <= 0","false","Sequential","None","**SPAWN-ON-DAMAGE MODE**","true","true",,,,,
+,,,,"None",,"true","tower_hp(wave_var3-1) < (wave_var2 - var3 * defense_card_cost1)",,,,,
+,,,,"SetWaveVar2",,"true","true","wave_var2 - var3 * defense_card_cost1",,,,
+,,,,"LogInfo","TOWER $WAVE_VAR3$ TRIGGERED, UNIT SLOT 1!","true","true",,,,,
+,,,,"SetDefenseCardIndex",,"true","true",0,,,,
+,,,,"SpawnWaveChild","Tower$WAVE_VAR3$Spawn$CURRENT_CARD_PVE_TYPE$","true","true",,,,,
+,,,,"TriggerDefenseDeploy",,"true","true","wave_var3-1",,,,
+,,,,"None",,"true","tower_hp(wave_var3-1) < (wave_var2 - var3 * defense_card_cost2)",,,,,
+,,,,"SetWaveVar2",,"true","true","wave_var2 - var3 * defense_card_cost2",,,,
+,,,,"LogInfo","TOWER $WAVE_VAR3$ TRIGGERED, UNIT SLOT 2!","true","true",,,,,
+,,,,"SetDefenseCardIndex",,"true","true",1,,,,
+,,,,"SpawnWaveChild","Tower$WAVE_VAR3$Spawn$CURRENT_CARD_PVE_TYPE$","true","true",,,,,
+,,,,"TriggerDefenseDeploy",,"true","true","wave_var3-1",,,,
+,,,,"None",,"true","tower_hp(wave_var3-1) < (wave_var2 - var3 * defense_card_cost3)",,,,,
+,,,,"SetWaveVar2",,"true","true","wave_var2 - var3 * defense_card_cost3",,,,
+,,,,"LogInfo","TOWER $WAVE_VAR3$ TRIGGERED, UNIT SLOT 3!","true","true",,,,,
+,,,,"SetDefenseCardIndex",,"true","true",2,,,,
+,,,,"SpawnWaveChild","Tower$WAVE_VAR3$Spawn$CURRENT_CARD_PVE_TYPE$","true","true",,,,,
+,,,,"TriggerDefenseDeploy",,"true","true","wave_var3-1",,,,
+,,,,"None",,"true","tower_hp(wave_var3-1) < (wave_var2 - var3 * defense_card_cost4)",,,,,
+,,,,"SetWaveVar2",,"true","true","wave_var2 - var3 * defense_card_cost4",,,,
+,,,,"LogInfo","TOWER $WAVE_VAR3$ TRIGGERED, UNIT SLOT 4!","true","true",,,,,
+,,,,"SetDefenseCardIndex",,"true","true",3,,,,
+,,,,"SpawnWaveChild","Tower$WAVE_VAR3$Spawn$CURRENT_CARD_PVE_TYPE$","true","true",,,,,
+,,,,"TriggerDefenseDeploy",,"true","true","wave_var3-1",,,,
+,,,,"RestartWave",,"true","true",,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+"MainClanBoatAttackRevengeTower_SPAWNONHIT","tower_hp(wave_var3-1) <= 0","false","Sequential","None","**SPAWN-ON-HIT MODE**","true","true",,,,,
+,,,,"SetWaveVar1",,"true","true","tower_hp(wave_var3-1)",,,,
+,,,,"None",,"true","tower_hp(wave_var3-1) != wave_var1",,,,,
+,,,,"LogInfo","TOWER $WAVE_VAR3$ TRIGGERED, UNIT SLOT 1!","true","true",,,,,
+,,,,"SetDefenseCardIndex",,"true","true",0,,,,
+,,,,"SpawnWaveChild","Tower$WAVE_VAR3$Spawn$CURRENT_CARD_PVE_TYPE$","true","true",,,,,
+,,,,"TriggerDefenseDeploy",,"true","true","wave_var3-1",,,,
+,,,,"SetDefenseChargeTime",,"true","true","wave_var3-1","var1*defense_card_cost2",,,
+,,,,"None",,"true","time_in_line >= (var1 * defense_card_cost2)",,,,,
+,,,,"SetWaveVar1",,"true","true","tower_hp(wave_var3-1)",,,,
+,,,,"None",,"true","tower_hp(wave_var3-1) != wave_var1",,,,,
+,,,,"LogInfo","TOWER $WAVE_VAR3$ TRIGGERED, UNIT SLOT 2!","true","true",,,,,
+,,,,"SetDefenseCardIndex",,"true","true",1,,,,
+,,,,"SpawnWaveChild","Tower$WAVE_VAR3$Spawn$CURRENT_CARD_PVE_TYPE$","true","true",,,,,
+,,,,"TriggerDefenseDeploy",,"true","true","wave_var3-1",,,,
+,,,,"SetDefenseChargeTime",,"true","true","wave_var3-1","var1*defense_card_cost3",,,
+,,,,"None",,"true","time_in_line >= (var1 * defense_card_cost3)",,,,,
+,,,,"SetWaveVar1",,"true","true","tower_hp(wave_var3-1)",,,,
+,,,,"None",,"true","tower_hp(wave_var3-1) != wave_var1",,,,,
+,,,,"LogInfo","TOWER $WAVE_VAR3$ TRIGGERED, UNIT SLOT 3!","true","true",,,,,
+,,,,"SetDefenseCardIndex",,"true","true",2,,,,
+,,,,"SpawnWaveChild","Tower$WAVE_VAR3$Spawn$CURRENT_CARD_PVE_TYPE$","true","true",,,,,
+,,,,"TriggerDefenseDeploy",,"true","true","wave_var3-1",,,,
+,,,,"SetDefenseChargeTime",,"true","true","wave_var3-1","var1*defense_card_cost4",,,
+,,,,"None",,"true","time_in_line >= (var1 * defense_card_cost4)",,,,,
+,,,,"SetWaveVar1",,"true","true","tower_hp(wave_var3-1)",,,,
+,,,,"None",,"true","tower_hp(wave_var3-1) != wave_var1",,,,,
+,,,,"LogInfo","TOWER $WAVE_VAR3$ TRIGGERED, UNIT SLOT 4!","true","true",,,,,
+,,,,"SetDefenseCardIndex",,"true","true",3,,,,
+,,,,"SpawnWaveChild","Tower$WAVE_VAR3$Spawn$CURRENT_CARD_PVE_TYPE$","true","true",,,,,
+,,,,"TriggerDefenseDeploy",,"true","true","wave_var3-1",,,,
+,,,,"SetDefenseChargeTime",,"true","true","wave_var3-1","var1*defense_card_cost1",,,
+,,,,"None",,"true","time_in_line >= (var1 * defense_card_cost1)",,,,,
+,,,,"RestartWave",,"true","true",,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+"MainClanBoatAttackBrokenTower","false","false","Sequential","None",,"true","time_in_line >= (var2 * defense_card_cost1)",,,,,
+,,,,"SetDefenseCardIndex",,"true","true",0,,,,
+,,,,"SpawnWaveChild","Tower$WAVE_VAR3$Spawn$CURRENT_CARD_PVE_TYPE$","true","true",,,,,
+,,,,"None",,"true","time_in_line >= (var2 * defense_card_cost2)",,,,,
+,,,,"SetDefenseCardIndex",,"true","true",1,,,,
+,,,,"SpawnWaveChild","Tower$WAVE_VAR3$Spawn$CURRENT_CARD_PVE_TYPE$","true","true",,,,,
+,,,,"None",,"true","time_in_line >= (var2 * defense_card_cost3)",,,,,
+,,,,"SetDefenseCardIndex",,"true","true",2,,,,
+,,,,"SpawnWaveChild","Tower$WAVE_VAR3$Spawn$CURRENT_CARD_PVE_TYPE$","true","true",,,,,
+,,,,"None",,"true","time_in_line >= (var2 * defense_card_cost4)",,,,,
+,,,,"SetDefenseCardIndex",,"true","true",3,,,,
+,,,,"SpawnWaveChild","Tower$WAVE_VAR3$Spawn$CURRENT_CARD_PVE_TYPE$","true","true",,,,,
+,,,,"RestartWave",,"true","true",,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+"Tower1SpawnUnknown","false","false","Sequential","SpawnFromTower1","$CURRENT_CARD$","true","true",1,3500,12000,0,"current_card_level"
+"Tower1SpawnDefender","false","false","Sequential","SpawnFromTower1","$CURRENT_CARD$","true","true",1,3500,12000,0,"current_card_level"
+"Tower1SpawnAttacker","false","false","Sequential","SpawnFromTower1","$CURRENT_CARD$","true","true",1,18000,3500,0,"current_card_level"
+"Tower1SpawnSpell","false","false","Sequential","SpawnFromTower1","$CURRENT_CARD$","true","true",1,3500,9000,0,"current_card_level"
+"Tower1SpawnRange","false","false","Sequential","SpawnFromTower1","$CURRENT_CARD$","true","true",1,3500,2500,0,"current_card_level"
+,,,,,,,,,,,,
+"Tower2SpawnUnknown","false","false","Sequential","SpawnFromTower2","$CURRENT_CARD$","true","true",1,9000,12000,0,"current_card_level"
+"Tower2SpawnDefender","false","false","Sequential","SpawnFromTower2","$CURRENT_CARD$","true","true",1,9000,12000,0,"current_card_level"
+"Tower2SpawnAttacker","false","false","Sequential","SpawnFromTower2","$CURRENT_CARD$","true","true",1,9000,12000,0,"current_card_level"
+"Tower2SpawnSpell","false","false","Sequential","SpawnFromTower2","$CURRENT_CARD$","true","true",1,9000,9000,0,"current_card_level"
+"Tower2SpawnRange","false","false","Sequential","SpawnFromTower2","$CURRENT_CARD$","true","true",1,9000,4500,0,"current_card_level"
+,,,,,,,,,,,,
+"Tower3SpawnUnknown","false","false","Sequential","SpawnFromTower3","$CURRENT_CARD$","true","true",1,15000,12000,0,"current_card_level"
+"Tower3SpawnDefender","false","false","Sequential","SpawnFromTower3","$CURRENT_CARD$","true","true",1,15000,12000,0,"current_card_level"
+"Tower3SpawnAttacker","false","false","Sequential","SpawnFromTower3","$CURRENT_CARD$","true","true",1,1500,3500,0,"current_card_level"
+"Tower3SpawnSpell","false","false","Sequential","SpawnFromTower3","$CURRENT_CARD$","true","true",1,15000,9000,0,"current_card_level"
+"Tower3SpawnRange","false","false","Sequential","SpawnFromTower3","$CURRENT_CARD$","true","true",1,15000,2500,0,"current_card_level"
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+"TutorialTest_1_2","false","false","Sequential","Spawn","Goblins","true","time_in_line >= 3000",1,4000,7000,0,1
+,,,,"Spawn","Knight","true","time_in_line >= 8000",1,6000,8000,0,1
+,,,,"Spawn","Archer","true","true",1,6000,8000,0,1
+,,,,"Spawn","Goblins","true","time_in_line >= 15000",1,4000,7000,0,1
+,,,,"RestartWave",,"true","time_in_line >= 30000",,,,,
+,,,,,,,,,,,,
+"TutorialTest_1_3","false","false","Sequential","Spawn","Giant","true","time_in_line >= 3000",1,15000,12000,0,1
+,,,,"Spawn","Knight","true","time_in_line >= 15000",1,15000,8000,0,1
+,,,,"Spawn","Goblins","true","time_in_line >= 20000",1,15000,7000,0,1
+,,,,"RestartWave",,"true","time_in_line >= 45000",,,,,
+,,,,,,,,,,,,
+"TutorialTest_1_1","false","false","Sequential","Spawn","Skeletons","true","time_in_line >= 2500",1,3500,7500,0,1
+,,,,"Spawn","Goblins","true","time_in_line >= 50",1,6000,6000,0,1
+,,,,"RestartWave",,"true","time_in_line >= 45000",,,,,
+,,,,,,,,,,,,
+"Tutorial_NPC_4_2","false","false","Sequential","Spawn","Knight","true","time_in_line >= 3000",1,3500,7500,0,1
+,,,,"Spawn","Archer","true","time_in_line >= 5000",1,3500,7500,0,1
+,,,,"Spawn","Goblins","true","time_in_line >= 13000",1,15000,7500,0,1
+,,,,"Spawn","Skeletons","true","time_in_line >= 18000",1,15000,7500,0,1
+,,,,"Spawn","Knight","true","time_in_line >= 24000",1,5000,4500,0,1
+,,,,"RestartWave",,"true","time_in_line >= 35000",,,,,
+,,,,,,,,,,,,
+"Tutorial_NPC_5_2","false","false","Sequential","Spawn","Knight","true","time_in_line >= 3000",1,15000,7500,0,1
+,,,,"Spawn","Bomber","true","time_in_line >= 5000",1,15000,7500,0,1
+,,,,"Spawn","Skeletons","true","time_in_line >= 13000",1,3500,7500,0,1
+,,,,"Spawn","Archer","true","time_in_line >= 18000",1,15000,7500,0,1
+,,,,"Spawn","Knight","true","time_in_line >= 24000",1,5000,4500,0,1
+,,,,"RestartWave",,"true","time_in_line >= 35000",,,,,
+,,,,,,,,,,,,
+"PVE_Test_NPC_1","false","false","Sequential","Spawn","Knight","true","time_in_line >= 3000",2,15000,7500,0,11
+,,,,"Spawn","Bomber","true","time_in_line >= 5000",2,15000,7500,0,11
+,,,,"Spawn","Giant","true","time_in_line >= 10000",2,3500,7500,0,11
+,,,,"Spawn","Archer","true","time_in_line >= 12000",3,15000,7500,0,11
+,,,,"Spawn","Knight","true","time_in_line >= 24000",3,5000,4500,0,11
+,,,,"RestartWave",,"true","time_in_line >= 26000",,,,,
+,,,,,,,,,,,,
+"CardDelivery_LittlePrince_1","false","false","Sequential","Spawn","Knight","true","time_in_line >= 19000",1,3000,11000,0,11
+,,,,"Spawn","Archer","true","time_in_line >= 2000",1,3000,9000,0,11
+,,,,"SpawnWaveStandalone","CardDelivery_LittlePrince_1_loop","true","time_in_line >= 15000",,,,,
+,,,,,,,,,,,,
+"CardDelivery_LittlePrince_2","false","false","Sequential","Spawn","LittlePrince","true","time_in_line >= 6000",1,8000,6000,0,11
+,,,,"ChampionAbility",,"true","time_in_line >= 9000",,,,,
+,,,,"SpawnWaveStandalone","CardDelivery_LittlePrince_2_loop","true","time_in_line >= 12000",,,,,
+,,,,,,,,,,,,
+"CardDelivery_LittlePrince_3","false","false","Sequential","Spawn","LittlePrince","true","time_in_line >= 6000",1,3000,1000,0,11
+,,,,"SpawnWaveStandalone","CardDelivery_LittlePrince_3_loop","true","time_in_line >= 1000",,,,,
+,,,,,,,,,,,,
+"CardDelivery_LittlePrince_1_loop","false","false","Sequential","Spawn","Knight","true","time_in_line >= 1000",1,3000,11000,0,11
+,,,,"Spawn","Archer","true","time_in_line >= 1000",1,3000,9000,0,11
+,,,,"Spawn","Knight","true","time_in_line >= 30000",1,14000,11000,0,11
+,,,,"Spawn","Archer","true","time_in_line >= 1000",1,14000,9000,0,11
+,,,,"RestartWave",,"true","time_in_line >= 30000",,,,,
+,,,,,,,,,,,,
+"CardDelivery_LittlePrince_2_loop","false","false","Sequential","Spawn","Musketeer","true","time_in_line >= 1000",1,3000,11000,0,11
+,,,,"Spawn","Minions","true","time_in_line >= 1000",1,3000,9000,0,11
+,,,,"Spawn","LittlePrince","true","time_in_line >= 20000",1,14000,11000,0,11
+,,,,"Spawn","Goblins","true","time_in_line >= 1000",1,14000,9000,0,11
+,,,,"ChampionAbility",,"true","time_in_line >= 5000",,,,,
+,,,,"RestartWave",,"true","time_in_line >= 25000",,,,,
+,,,,,,,,,,,,
+"CardDelivery_LittlePrince_3_loop","false","false","Sequential","Spawn","Giant","true","time_in_line >= 5000",1,3000,11000,0,11
+,,,,"ChampionAbility",,"true","time_in_line >= 6000",,,,,
+,,,,"Spawn","Rascals","true","time_in_line >= 20000",1,14000,11000,0,11
+,,,,"Spawn","IceSpirits","true","time_in_line >= 2000",1,14000,11000,0,11
+,,,,"Spawn","LittlePrince","true","time_in_line >= 12000",1,3000,1000,0,11
+,,,,"RestartWave",,"true","time_in_line >= 2000",,,,,
+,,,,,,,,,,,,
+"Tutorial_Empty_Wave","false","false","Sequential","LogInfo","Starting empty tutorial container wave!","true","time_in_line >= 100",,,,,
+,,,,"RestartWave",,"true","time_in_line >= 100000",,,,,
+,,,,,,,,,,,,
+"CardDelivery_DaggerDuchess_1","false","false","Sequential","None",,"true","time_in_line >= 100",,,,,
+,,,,"RestartWave",,"true","time_in_line >= 100000",,,,,
+,,,,,,,,,,,,
+"CardDelivery_DaggerDuchess_2","false","false","Sequential","None",,"true","time_in_line >= 100",,,,,
+,,,,"RestartWave",,"true","time_in_line >= 100000",,,,,
+,,,,,,,,,,,,
+"CardDelivery_DaggerDuchess_3","false","false","Sequential","None",,"true","time_in_line >= 100",,,,,
+,,,,"RestartWave",,"true","time_in_line >= 100000",,,,,
+,,,,,,,,,,,,
+"CardDelivery_DaggerDuchess_1_loop","false","false","Sequential","Spawn","DarkPrince","true","time_in_line >= 1000",1,3000,11000,0,11
+,,,,"Spawn","Minions","true","time_in_line >= 1500",1,3000,9000,0,11
+,,,,"Spawn","DarkPrince","true","time_in_line >= 25000",1,14000,11000,0,11
+,,,,"Spawn","Minions","true","time_in_line >= 1500",1,14000,9000,0,11
+,,,,"RestartWave",,"true","time_in_line >= 25000",,,,,
+,,,,,,,,,,,,
+"CardDelivery_DaggerDuchess_2_loop","false","false","Sequential","Spawn","Giant","true","time_in_line >= 1000",1,3000,8000,0,11
+,,,,"Spawn","SpearGoblins","true","time_in_line >= 4000",1,3000,9000,0,11
+,,,,"Spawn","Bomber","true","time_in_line >= 10000",1,8500,9000,0,11
+,,,,"Spawn","Giant","true","time_in_line >= 28000",1,14000,8000,0,11
+,,,,"Spawn","SpearGoblins","true","time_in_line >= 4000",1,14000,9000,0,11
+,,,,"RestartWave",,"true","time_in_line >= 28000",,,,,
+,,,,,,,,,,,,
+"CardDelivery_DaggerDuchess_3_loop","false","false","Sequential","Spawn","MegaKnight","true","time_in_line >= 1000",1,3000,11000,0,11
+,,,,"Spawn","Wallbreakers","true","time_in_line >= 2000",1,14000,11000,0,11
+,,,,"Spawn","BombTower","true","time_in_line >= 10000",1,8500,9000,0,11
+,,,,"Spawn","Wallbreakers","true","time_in_line >= 25000",1,3000,11000,0,11
+,,,,"Spawn","MegaKnight","true","time_in_line >= 2000",1,14000,11000,0,11
+,,,,"RestartWave",,"true","time_in_line >= 30000",,,,,
+,,,,,,,,,,,,
+"GTR_Tutorial_loop","false","false","Sequential","Spawn","Giant","true","time_in_line >= 1000",1,3000,11000,0,9
+,,,,"Spawn","Archer","true","time_in_line >= 2000",1,3000,9000,0,9
+,,,,"Spawn","Giant","true","time_in_line >= 25000",1,14000,11000,0,9
+,,,,"Spawn","Archer","true","time_in_line >= 2000",1,14000,9000,0,9
+,,,,"RestartWave",,"true","time_in_line >= 30000",,,,,

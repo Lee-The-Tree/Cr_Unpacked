@@ -1,0 +1,9 @@
+"Name","Spell","SpellAlt","Amount","Resource","EmoteIDHigh","EmoteIDLow","Chest","RandomSpell","SkinSet","Consumable","Banner","CustomImageSWF","CustomImageExportName","SupportCard","SupportCardAlt","RandomSupportCard"
+"string","string","string","int","string","int","int","string","string","int","string","string","string","string","string","string","string"
+"Test_1_Donation",,,1,,,,,,,,,,,"King_KnifeTowers",,
+"Test_1_Reward",,,1,,,,,,,,,,,"King_KnifeTowers",,
+"LittlePrince_Donation","LittlePrince",,1,,,,,,,,,,,,,
+"LittlePrince_Reward",,,,,,,,,,,"DartGoblinFG",,,,,
+"LittlePrince_Reward2",,,,,,,,,,,"DartGoblinBG",,,,,
+"DaggerDuchess_Donation",,,1,,,,,,,,,,,"King_KnifeTowers",,
+"DaggerDuchess_Reward",,,1,,,,,,,,,,,"King_KnifeTowers",,

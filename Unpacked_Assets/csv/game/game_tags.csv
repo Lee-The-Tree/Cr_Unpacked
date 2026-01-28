@@ -1,0 +1,34 @@
+"Name","Description","Note"
+"String","String","String"
+"MOVING",,
+"JUMPING",,
+"DASHING",,
+"CHARGING",,"Implemented"
+"PATHFINDING",,
+"ATTACKING",,
+"NO_MOVE",,"Implemented"
+"NO_JUMP",,
+"NO_DASH",,
+"NO_CHARGE",,
+"NO_ATTACK",,"Implemented"
+"NO_TARGET",,
+"LOCK_TARGET",,
+"NO_SPAWNTIMER","Equivalent to ModifySpawnTimer, back compatibility tag, it will be removed","Implemented"
+"NO_CHECKCOLLISIONS","Disable MoveComponent check collisions","Implemented"
+"NO_CHECKAVOIDANCE","Disable MoveComponent check avoidance","Implemented"
+"NO_BUFFS","New buffs are ignored","Implemented"
+"NO_PUSHED_BY_ENEMY","Unit is not pushed by enemies (only walking ground units)","Implemented"
+"NO_SHADOW","If the tag is active the character will not have a shadow (temp tag?)","Implemented"
+"STOP_FREEZE","If the tag is active Global Freeze is disabled (event December 2023)",
+"INACTIVE","Character is not activated and will not attack, (eg king tower)",
+"ACTIVATING","Character is in process of activating, will not yet attack but will play activation animation",
+"HAS_SHIELD","Character has all or some shield hitpoints left","Implemented"
+"TAKING_DAMAGE","Character did take damage in the previous tick","Implemented"
+"HIDDEN","Character is hidden","Functional, but not used in all cases. Implemented when character is captured by evo cards"
+"ABILITY_DISABLED","Executing champion ability is completely disabled and the button is greyed out.","Functional, but not used in all cases. Implemented when character is captured by evo cards"
+"BUILDING_DEATH_SPAWN_FIND_LOCATION","If this character has a death spawn, it will need to find a location for itself. Used for better positioning","Implemented"
+"ABILITY_ACTIVATION","Play ability activation animation","Implemented"
+"ABILITY_READY","Play ability ready animation","Implemented"
+"ABILITY_POSTPONED","Executing champion ability is currently postponed until the tag is no longer set.","Implemented"
+"UNIT_CUSTOM_TAG_1","Used for very specific and contained cases","In use by only 1 evo. Should be replaced by blackboard eventually."
+"NO_SUMMON","Character can not summon others (does not affect death spawns)","Implemented for evo cards"

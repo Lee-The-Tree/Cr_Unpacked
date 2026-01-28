@@ -1,0 +1,267 @@
+
+[EXT.GoblinQueenTower]
+    Base = "CHARACTER.KingTower"
+    SkinType = "NoSkin"
+    FileName = "sc/building_throne_goblin_queen.sc"
+    BlueExportName = "throne_queen_blue"
+    BlueTopExportName = "throne_queen_blue_top"
+    RedExportName = "throne_queen_red"
+    RedShadowExportName = "throne_queen_red_shadow" 
+    Scale = 134
+    AttachedCharacter = "GoblinQueenTowerTopCharacter"
+    ProjectileYOffset = 400
+    Projectile = "GoblinQueenProjectile"
+    OnStartingAction = "GoblinQueen_StartingAction"
+    HealthBarOffsetY = 0
+    HealthBarOffsetYRed = -55
+    HealthBarOffsetYBlue = 140
+    AttachedCharacterOffsetYRed = 1300
+    AttachedCharacterOffsetYBlue = -400
+    AttachedCharacterHeight = -500
+    ShadowScaleX = 150
+    ShadowScaleY = 100
+    ShadowX = 0
+    ShadowY = 60
+    ShadowSkew = 25
+    AbilityAnimationController = true
+    ProjectileEffect = "GoblinQueen_attack"
+    DeathEffect = "Goblin_Queen_Throne_Die"
+    
+[EXT.GoblinQueenProjectile]
+    Base = "PROJECTILE.KingProjectile"
+    FileName = "sc/building_throne_goblin_queen.sc"
+    ExportName = "Goblin_Queen_projectile"
+    TrailEffect = "goblin_queen_projectile_trail"
+    HitEffect = "GoblinQueen_Hit"
+    Scale = 150
+
+[CHARACTER.GoblinQueenTowerTopCharacter]
+    Rarity = "Common"
+    FileName = "sc/chr_goblin_queen_troop.sc"
+    BlueExportName = "goblin_queen"
+    RedExportName = "goblin_queen_enemy"
+    UseAnimator = true
+    ShadowScaleX = 100
+    ShadowScaleY = 100
+    ShadowX = 100
+    ShadowY = 100
+    ShadowSkew = 25
+    Scale = 70
+    DamageExportName = "filter_damage"
+
+[CHARACTER.GoblinQueenSecondaryTower]
+    Rarity = "Common"
+    IsBuilding = true
+    IsSummonerTower = true
+    SightRange = 7500
+    Hitpoints = 1400
+    HitSpeed = 800
+    Range = 7500
+    AttacksGround = true
+    AttacksAir = true
+    Projectile = "GoblinQueenSecondaryTowerProjectile"
+    ProjectileStartRadius = 300
+    ProjectileStartZ = 3000
+    CollisionRadius = 1000
+    NoDeploySizeW = 11
+    NoDeploySizeH = 21
+    FileName = "sc/chr_goblin_tower_mask.sc"
+    BlueExportName = "goblin_mask_tower"
+    RedExportName = "goblin_mask_tower_enemy"
+    UseAnimator = true
+	Scale = 50
+    ShadowScaleX = 102
+    ShadowScaleY = 70
+    ShadowX = -5
+    ShadowY = 5
+    ShadowSkew = 13
+    HealthBar = "Tower"
+    ShowHealthNumber = true
+    HealthBarOffsetYRed = 10
+    HealthBarOffsetYBlue = 100
+    DeathEffect = "Goblin_Mask_tower_explode"
+
+[EXT.GoblinQueenSecondaryTowerProjectile]
+    Base = "PROJECTILE.TowerPrincessProjectile"
+    Gravity = 0
+
+[ACTION.GoblinQueen_StartingAction]
+    ClassType = "ActionGroup"
+    SubActionsDelay = [0, 0]
+    SubActions = ["GoblinQueen_WaitForTowerActivation", "GoblinQueen_AbilityActivator"]
+
+[ACTION.GoblinQueen_WaitForTowerActivation]
+    ClassType = "ActionWaitToActivate"
+    Condition = "king_tower_damaged() || coop_king_tower_damaged() || tower_destroyed() || coop_tower_destroyed()"
+    GameTagsToSet = "INACTIVE"
+[ACTION.GoblinQueen_WaitForTowerActivation.OnActivateAction]
+    ClassType = "ActionWithDuration"
+    ActionDuration = 3300
+    GameTagsToSet = "ACTIVATING"
+    NextAction = "GoblinQueen_ActivationEffect"
+[ACTION.GoblinQueen_ActivationEffect]
+    ClassType = "ActionPlayEffect"
+    Effect = "goblin_queen_activate"
+
+[ACTION.GoblinQueen_AbilityActivator]
+    ClassType = "ActionActivateOnCardDeploy"
+    ElixirCost = 20
+    CardGroup = "Goblins"
+    EvaluateDeployedCard = false
+    OnActivateAction = "GoblinQueen_AbilityTrigger"
+    IndicatorFileName="sc/ui.sc"
+    IndicatorExportName="goblin_queen_charge_counter"
+    IndicatorOffsetYBlue=-65
+    IndicatorOffsetYRed=38
+    IndicatorPlaceholderInstanceName="icon_ability_placeholder"
+    IndicatorReplacementFileName="sc/ui_spells.sc"
+    IndicatorReplacementExportName="icon_goblin_queen_ability_baby"
+    ShowCardEffect=true
+    ElixirGainEffect = "goblin_queen_elixir_gain"
+    ElixirGainFullEffect = ""
+    ElixirFullLoopEffect = "goblin_queen_elixir_gain_ability_ready"
+    DeployElixirGainEffect = "Deploy_Goblin_Card_Elixir_Gain"
+    DeployElixirGainFullEffect = "Deploy_Goblin_Card"
+    DeployActivateEffect = "Deploy_Goblin_Card_Activate"
+    IgnoreDeployEffectCards = ["GoblinBarrel","GoblinDrill","GoblinCurse"]
+    GameTagsToSetOnReadyToActivate = "ABILITY_READY"
+
+[ACTION.GoblinQueen_AbilityTrigger]
+    ClassType = "ActionGroup"
+    SubActionsDelay = [0, 0, 500, 500, 700, 700, 900, 900, 1100, 1100]
+    SubActions = [ 
+        "GoblinQueen_Ability_Set_Tags", 
+        "GoblinQueen_Ability_Effect", 
+        "GoblinQueen_Ability_BabyGoblin_L1",
+        "GoblinQueen_Ability_BabyGoblin_R1", 
+        "GoblinQueen_Ability_BabyGoblin_L2", 
+        "GoblinQueen_Ability_BabyGoblin_R2", 
+        "GoblinQueen_Ability_BabyGoblin_L3", 
+        "GoblinQueen_Ability_BabyGoblin_R3", 
+        "GoblinQueen_Ability_BabyGoblin_L4", 
+        "GoblinQueen_Ability_BabyGoblin_R4" 
+    ]
+
+[ACTION.GoblinQueen_Ability_Set_Tags]
+    ClassType = "ActionWithDuration"
+    ActionDuration = 1800
+    GameTagsToSet = "ABILITY_ACTIVATION,NO_ATTACK" 
+
+[ACTION.GoblinQueen_Ability_Effect]
+    ClassType = "ActionPlayEffect"
+    Effect = "goblin_queen_ability_activate"
+    EnemyVersion = "goblin_queen_ability_activate_enemy"
+
+[ACTION.GoblinQueen_Ability_BabyGoblin_L1]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "ProjectileType"
+    SpawnData = "BabyGoblin_Projectile"
+    MirroredX = 1
+    MirroredY = 0
+    TargetExprX = "x-7000"
+    TargetExprY = "y-17000*team_y_direction(team_index)"
+
+[ACTION.GoblinQueen_Ability_BabyGoblin_L2]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "ProjectileType"
+    SpawnData = "BabyGoblin_Projectile"
+    MirroredX = -1
+    MirroredY = 2
+    TargetExprX = "x-4500"
+    TargetExprY = "y-17000*team_y_direction(team_index)"
+
+[ACTION.GoblinQueen_Ability_BabyGoblin_L3]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "ProjectileType"
+    SpawnData = "BabyGoblin_Projectile"
+    MirroredX = 1
+    MirroredY = 2
+    TargetExprX = "x-3000"
+    TargetExprY = "y-17000*team_y_direction(team_index)"
+
+[ACTION.GoblinQueen_Ability_BabyGoblin_L4]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "ProjectileType"
+    SpawnData = "BabyGoblin_Projectile"
+    MirroredX = 1
+    MirroredY = 0
+    TargetExprX = "x-1000"
+    TargetExprY = "y-17000*team_y_direction(team_index)"
+
+[ACTION.GoblinQueen_Ability_BabyGoblin_R1]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "ProjectileType"
+    SpawnData = "BabyGoblin_Projectile"
+    MirroredX = 0
+    MirroredY = 0
+    TargetExprX = "x+7000"
+    TargetExprY = "y-17000*team_y_direction(team_index)"
+
+[ACTION.GoblinQueen_Ability_BabyGoblin_R2]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "ProjectileType"
+    SpawnData = "BabyGoblin_Projectile"
+    MirroredX = 1
+    MirroredY = 0
+    TargetExprX = "x+4500"
+    TargetExprY = "y-17000*team_y_direction(team_index)"
+
+[ACTION.GoblinQueen_Ability_BabyGoblin_R3]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "ProjectileType"
+    SpawnData = "BabyGoblin_Projectile"
+    MirroredX = 1
+    MirroredY = 0
+    TargetExprX = "x+3000"
+    TargetExprY = "y-17000*team_y_direction(team_index)"
+
+[ACTION.GoblinQueen_Ability_BabyGoblin_R4]
+    ClassType = "ActionSpawnToLocation"
+    SpawnType = "ProjectileType"
+    SpawnData = "BabyGoblin_Projectile"
+    MirroredX = -1
+    MirroredY = 2
+    TargetExprX = "x+1000"
+    TargetExprY = "y-17000*team_y_direction(team_index)"
+
+[PROJECTILE.BabyGoblin_Projectile]
+    Rarity = "Common"
+    Speed = 400
+    Scale = 60
+    Gravity = 40
+    FileName = "sc/chr_baby_goblin_dagger_troop.sc"
+    ExportName = "baby_goblin_2_fly"
+    RedExportName = "baby_goblin_2_fly_enemy"
+    ShadowExportName = "baby_goblin_fly_nest_shadow"
+    SpawnCharacter = "BabyGoblin"
+    HitEffect = "BabyGoblin_land_effect"
+    TrailEffect = "BabyGoblin_Fly_Emitter"
+
+[CHARACTER.BabyGoblin]
+    Rarity = "Common"
+    TID = "TID_CHARACTER_BABY_GOBLIN"
+    SightRange = 5500
+    DeployTime = 1000
+    Speed = 120
+    Hitpoints = 59
+    HitSpeed = 900
+    LoadTime = 500
+    Damage = 34
+    Range = 500
+    AttacksGround = true
+    FileName = "sc/chr_baby_goblin_dagger_troop.sc"
+    BlueExportName = "baby_goblin2"
+    RedExportName = "baby_goblin2_red"
+    UseAnimator = true
+    ShadowScaleX = 85
+    ShadowScaleY = 60
+    ShadowY = 10
+    ShadowSkew = 25
+    Scale = 50
+    CollisionRadius = 500
+    Mass = 1
+    HealthBar = "Small"
+    DamageExportName = "filter_damage"
+    DeployDelay = 400
+    DeployBaseAnimExportName = "filter_deploy_unit_default"
+    DeathEffect = "Death_goblin_curse"

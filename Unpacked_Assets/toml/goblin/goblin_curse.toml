@@ -1,0 +1,102 @@
+[AEO.GoblinCurse]
+    Rarity = "Common"
+    LifeDuration = 6000
+    Radius = 3000
+    HitSpeed = -1
+    Damage = 100 
+    OnlyEnemies = true
+    HitsGround = false
+    HitsAir = false
+    OnStartingAction = "GoblinCurseSet"
+
+[ACTION.GoblinCurseSet]
+    ClassType= "ActionGroup"
+    SubActionsDelay = [0, 0, 6000]
+    SubActions = [
+        "GoblinCurseIntro",
+        "GoblinCurseCore",
+        "GoblinCurseOutro"
+    ]
+
+[ACTION.GoblinCurseIntro]
+    ClassType="ActionPlayEffect"
+    Effect="spell_goblin_curse_intro_shorter"
+
+[ACTION.GoblinCurseCore]
+    ClassType = "ActionSpawn"
+    SpawnType = "AreaEffectType"
+    SpawnData = "GoblinCurseBase"
+    
+[AEO.GoblinCurseBase]
+    Rarity = "Common"
+    LifeDuration = 6000
+    Radius = 3000
+    ScaledEffect = "spell_goblin_curse"
+    HitSpeed = 50
+    OnlyEnemies = true
+    HitsGround = true
+    HitsAir = true
+    OnHitAction="GoblinCurseCreateBuffs"
+
+[ACTION.GoblinCurseCreateBuffs]
+    ClassType= "ActionGroup"
+    SubActionsDelay = [ 0,0,0 ]
+[[ACTION.GoblinCurseCreateBuffs.SubActions]]
+    ClassType = "ActionSpawn"
+    SpawnType = "BuffType"
+    SpawnData = "GoblinCurseAmplify"
+    SpawnTime = 100
+[[ACTION.GoblinCurseCreateBuffs.SubActions]]
+    ClassType = "ActionSpawn"
+    SpawnType = "BuffType"
+    SpawnData = "GoblinCurse"
+    SpawnTime = 100
+[[ACTION.GoblinCurseCreateBuffs.SubActions]]
+    ClassType = "ActionSpawn"
+    SpawnType = "BuffType"
+    SpawnData = "GoblinCurseDamage"
+    SpawnTime = 100
+
+[BUFF.GoblinCurse]
+    Rarity = "Common"
+    TID = "TID_GOBLIN_CURSE"
+    Effect = "PoisonSteam"
+    FilterFile = "sc/effects.sc"
+    FilterExportName = "filter_poison"
+    DeathSpawn = "GoblinCurseGoblin"
+    DeathSpawnIsEnemy = true
+    DeathSpawnCount = 1
+    DeathSpawnDeployDelay = true
+    IgnoreBuildings = true
+    OtherBuffDeathSpawnAllowed = true
+    DeathEffectOverride = "effect_goblin_curse_transform"
+    DeathSpawnSameLocation=true
+
+[BUFF.GoblinCurseDamage]
+    Rarity = "Common"
+    TID = "TID_GOBLIN_CURSE"
+    CrownTowerDamagePercent = -80
+    DamagePerSecond = 10
+    HitFrequency = 1000
+    EnableStacking = true   
+
+[BUFF.GoblinCurseAmplify]
+    Rarity = "Common"
+    TID = "TID_GOBLIN_CURSE"
+    DamageReduction = -20
+    NoDamageReductionForBuffs = [ "GoblinCurseDamage" ]
+    OnDamageReductionAction = "GoblinCurse_AmplificationVFX"
+    IgnoreBuildings = true
+
+[ACTION.GoblinCurse_AmplificationVFX]
+ClassType="ActionPlayEffect"
+Effect = "effect_goblin_curse_damage_amplification"
+EffectFlags = "FollowParent,ParticlesFollowParent,ApplyToAttachedChildCharacters"
+
+[EXT.GoblinCurseGoblin]
+    Base = "CHARACTER.Goblin"
+    DeathEffect = "Death_goblin_curse"
+
+[ACTION.GoblinCurseOutro]
+    ClassType="ActionPlayEffect"
+    Effect="spell_goblin_curse_outro"

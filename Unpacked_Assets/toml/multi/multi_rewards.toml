@@ -1,0 +1,37 @@
+
+
+
+[GoblinJourneyUnlock]
+PopupSWF = "sc/ui_multireward_popup.sc"
+PopupExportName = "page_background"
+RequiredTrail = "GoblinRoadPlatform"
+[[GoblinJourneyUnlock.RewardPages]]
+Name = "GoblinJourney_Leader"
+PageSWF = "sc/ui_multireward_popup.sc"
+PageExportName = "page_single_item_leader"
+PageTitle = "TID_MULTIREWARD_POPUP_NEW_LEADER"
+RewardName = "TID_GOBLIN_QUEEN"
+ButtonLabel = "TID_MULTIREWARD_POPUP_NEXT"
+[[GoblinJourneyUnlock.RewardPages]]
+Name = "GoblinJourney_TT"
+PageSWF = "sc/ui_multireward_popup.sc"
+PageExportName = "page_single_item_custom"
+PageTitle = "TID_MULTIREWARD_POPUP_NEW_TOWER_TROOP"
+ButtonLabel = "TID_MULTIREWARD_POPUP_NEXT"
+SupportCard = "GoblinQueen_SpawnAbility"
+Amount = 0
+[[GoblinJourneyUnlock.RewardPages]]
+Name = "GoblinJourney_NewCard1"
+PageSWF = "sc/ui_multireward_popup.sc"
+PageExportName = "page_single_item"
+PageTitle = "TID_MULTIREWARD_POPUP_NEW_CARD"
+ButtonLabel = "TID_MULTIREWARD_POPUP_NEXT"
+Spell = "GoblinDemolisher"
+Amount = 0
+[[GoblinJourneyUnlock.RewardPages]]
+Name = "GoblinJourney_Deck"
+PageSWF = "sc/ui_multireward_popup.sc"
+PageExportName = "page_multi_item_deck"
+PageTitle = "TID_MULTIREWARD_POPUP_GOBLIN_DECK"
+ButtonLabel = "TID_MULTIREWARD_POPUP_CLAIM_ALL"
+Deck = "GoblinJourney_StarterDeck"

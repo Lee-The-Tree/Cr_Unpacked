@@ -1,0 +1,203 @@
+
+[RoyalGiantProjectile_EV1]
+
+	Rarity = "Common"
+	Speed = 1000
+	FileName = "sc/chr_royalgiant_evolution.sc"
+	ExportName = "RoyalGiant_Evolution_projectile"
+	ShadowExportName = "RoyalGiant_Evolution_projectile_shadow"
+	Scale = 60
+	Homing = true
+	HitEffect = "royal_giant_projectile_hit"
+	Damage = 120
+	Radius = 250
+	AoeToGround = true
+	OnlyEnemies = true
+	ProjectileRadius = 250
+	ProjectileStartExtraRadius = 400
+	ConstantHeight = 1500
+	DeflectBehaviour = "IgnoreHeight"
+
+[FirecrackerProjectile_EV1]
+
+	Rarity = "Common"
+	Speed = 400
+	FileName = "sc/chr_firecracker_evolution.sc"
+	ExportName = "evofirecracker_projectile"
+	ShadowExportName = "evofirecracker_projectile_shadow"
+	Scale = 80
+	HitEffect = "firecracker_hit"
+	AoeToAir = true
+	AoeToGround = true
+	OnlyEnemies = true
+	Gravity = 50
+	TrailEffect = "firecracker_projectile_Emitter"
+	SpawnAreaEffectObject = "FirecrackerFireworksBig_EV1"
+	SpawnProjectile = "FirecrackerExplosion_EV1"
+	Scatter = "Line"
+
+[FirecrackerExplosion_EV1]
+
+	Rarity = "Common"
+	Speed = 550
+	FileName = "sc/chr_firecracker_dl.sc"
+	ExportName = "firecracker_projectile2"
+	ShadowExportName = "firecracker_projectile2_shadow"
+	Scale = 150
+	HitEffect = "firecracker_hit2"
+	Damage = 25
+	Radius = 400
+	AoeToAir = true
+	AoeToGround = true
+	OnlyEnemies = true
+	Gravity = 50
+	SpawnAreaEffectObject = "FirecrackerFireworksSmall_EV1"
+	TrailEffect = "firecracker_projectile2_emitter"
+	ProjectileRadius = 400
+	ProjectileStartExtraRadius = 650
+	ProjectileRange = 5000
+	SpawnCount = 5
+	SpawnRadius = 80
+	MinDistance = 5000
+	ConstantHeight = 1000
+	ShakesTargets = true
+	ShakesShooter = 500
+	Scatter = "Circle"
+	DeflectBehaviour = "InvertDirection"
+
+[MortarProjectile_EV1]
+
+	Rarity = "Common"
+	Speed = 300
+	FileName = "sc/effects_evolution.sc"
+	ExportName = "mortar_evolved_projectile_v2"
+	RedExportName = "enemy_mortar_evolved_projectile"
+	Scale = 150
+	HitEffect = "mortar_hit"
+	Damage = 104
+	Radius = 2000
+	AoeToGround = true
+	OnlyEnemies = true
+	Gravity = 60
+	SpawnCharacterDeployTime = 200
+	SpawnCharacter = "Goblin"
+	SpawnConstPriority = true
+
+
+[Archer_EV1_Arrow]
+
+	Base = "ArcherArrow"
+
+[Archer_EV1_ArrowDoubleDamage]
+	Base = "ArcherArrow"
+	Damage = ["%",200]
+	TrailEffect="archer_evo_arrow_fx"
+	FileName="sc/chr_archer_evolution.sc"
+	ExportName="archer_evo_special"
+	RedExportName="archer_evo_special"
+	ShadowExportName="archer_evo_special_shadow"
+	Scale=30
+	
+[IceSpiritsProjectile_EV1]
+
+	Rarity = "Common"
+	Speed = 400
+	FileName = "sc/chr_ice_spirit_evolution.sc"
+	ExportName = "projectile_icespirit_evo"
+	Homing = true
+	HitEffect = "Evo_icespirit_projectile_hit"
+	Damage = 43
+	Radius = 2000
+	AoeToAir = true
+	AoeToGround = true
+	OnlyEnemies = true
+	Gravity = 400
+	SpawnAreaEffectObject = "IceSpiritsAOE_EV1"
+	TargetBuff = "Freeze"
+	BuffTime = 1200
+	TrailEffect = "ice_wiz_emitter"
+	use360Frames = true
+	DeflectBehaviour = "NoDeflect"
+	OnHitTargetAction = "IceSpirits_Hit_EV1"
+
+
+[BombSkeletonProjectile_EV1]
+
+	Rarity = "Common"
+	Speed = 400
+	FileName = "sc/chr_bomber_evolution.sc"
+	ExportName = "bomber_bomb"
+	ShadowExportName = "bomber_bomb_shadow"
+	Scale = 55
+	HitEffect = "BombTower_projectile_hit_evo"
+	Damage = 90
+	Radius = 1500
+	AoeToGround = true
+	OnlyEnemies = true
+	Gravity = 200
+	TrailEffect = "BomberBomb_fire_emitter"	
+	SpawnProjectile = "BombSkeletonProjectile_2_EV1"
+	SpawnChain = 2
+
+[BombSkeletonProjectile_2_EV1]
+
+	Base = "BombSkeletonProjectile_EV1"
+	ProjectileRange = 2500
+	HitEffect = "BombTower_projectile_hit2_evo"
+
+
+[WallbreakerProjectile_EV1]
+
+	Base = "WallbreakerProjectile"
+	Damage = ["%",100]
+
+[WallbreakerBarrelExplosion_EV1]
+
+	Rarity = "Epic"
+	Speed = 600
+	FileName = "sc/effects.sc"
+	ExportName = "fireball_projectile1"
+	HitEffect = "Evolution_Wallbreaker_explosion"
+	Damage = 122
+	Radius = 2000
+	AoeToGround = true
+	AoeToAir = true
+	OnlyEnemies = true
+	Gravity = 50
+
+
+[GoblinBarrelSpell_EV1]
+
+	Base = "GoblinBarrelSpell"
+	FileName = "sc/spell_goblin_barrel_evolution.sc"
+	ExportName = "spell_goblin_barrel_evolution_projectile"
+	TrailEffect = "goblin_barrel_spawn_evolution"
+	ShadowExportName = "Barrel_evolution_shadow"
+	HitEffect = "goblin_barrel_evolution_explosion"
+	Scale = 110
+	PrestigeSWF=""
+	PrestigeExportName=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	PrestigeRedExportName=""
+	PrestigeRedExportName2=""
+	PrestigeRedExportName3=""
+
+
+[GoblinBarrelSpell_EV1_Decoy]
+
+	Base = "GoblinBarrelSpell"
+	FileName = "sc/spell_goblin_barrel_evolution.sc"
+	ExportName = "spell_goblin_barrel_evolution_projectile"
+	ShadowExportName = "Barrel_evolution_shadow"
+	TrailEffect = "goblin_barrel_spawn_evolution"
+	SpawnCharacter = "GoblinDummy"
+	HitEffect = "goblin_barrel_evolution_explosion"
+	Scale = 110
+	PrestigeSWF=""
+	PrestigeExportName=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	PrestigeRedExportName=""
+	PrestigeRedExportName2=""
+	PrestigeRedExportName3=""

@@ -1,0 +1,39 @@
+
+[Mortar_EV1]
+
+	Base="Mortar"
+	HitSpeed=["=",4000]
+	Projectile="MortarProjectile_EV1"
+	PrestigeSWF=""
+	PrestigeExportName2=""
+	PrestigeExportName3=""
+	HealthBar="_EV1"
+	DeathEffect="Death_card_evolution_M"
+	SpawnEffect="Deploy_Mortar_Evolution"
+	CustomSpawnFilter="filter_card_evolution"
+	FileName="sc/building_mortar_evolution.sc"
+	BlueExportName="mortar_evolution"
+	RedExportName="enemy_mortar_evolution"
+	ProjectileEffect="evo_mortar_attack"
+
+[Tesla_EV1]
+
+	Base="Tesla"
+	HealthBar="_EV1"
+	DeathEffect="Death_card_evolution_M"
+	AppearEffect="evo_tesla_up"
+	HideEffect="evo_tesla_down"
+	AttackStartEffect="evo_tesla_beam"
+	CustomSpawnFilter="filter_card_evolution"
+	SpawnEffect="Deploy_Tesla_Evolution"
+	FileName="sc/building_tesla_evolution.sc"
+	BlueExportName="tesla_evolution"
+	RedExportName="tesla_enemy_evolution"
+	HealthBarOffsetY= -15
+	OnStartingAction = "Tesla_EV1_AppearStun"
+	OnAppearAction = "Tesla_EV1_AppearStun"
+	OnDisappearAction = "Tesla_EV1_Charging"
+	DeathAreaEffect = "Tesla_EV1_DummyAEO"
+	PrestigeExportName2=""
+	PrestigeRedExportName2=""
+

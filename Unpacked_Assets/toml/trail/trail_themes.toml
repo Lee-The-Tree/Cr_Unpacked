@@ -1,0 +1,78 @@
+
+[RoyalRoad]
+Home="sc/ui_main_screen_royals.sc"
+Road="sc/ui_trophy_road.sc"
+Deck="sc/ui_deck_builder.sc"
+SwitcherClip="switcher_royals"
+MainButtonIcon="button_mode_trophy_road"
+TrophyRoadBGMode="None"
+
+[GoblinRoad]
+Suffix="_goblin"
+Home="sc/ui_main_screen_goblins.sc"
+Road="sc/ui_main_screen_goblins.sc"
+RoadMilestones="sc/ui_trophy_road_milestones_goblin.sc"
+Deck="sc/ui_deck_builder_goblins.sc"
+SwitcherClip="switcher_goblins"
+MainButtonIcon="button_mode_goblin"
+TrophyRoadBGMode="Vertical3Slice"
+TrophyRoadEndMargin=200
+TrophyRoadBGOffsetX=30
+MenuMusic="Goblin_Menu_Music"
+    [[GoblinRoad.Arenas]]
+		Arena="GoblinArena1"
+		TrophyRoadBGStartClip="tr_goblin_gm_bg_start"
+		TrophyRoadBGMiddleClips=["tr_goblin_gm_bg_mid_1_3", "tr_goblin_gm_bg_mid_2_3", "tr_goblin_gm_bg_mid_3_3", "tr_goblin_gm_bg_mid_1_3", "tr_goblin_gm_bg_mid_2_3", "tr_goblin_gm_bg_mid_3_3", "tr_goblin_gm_bg_mid_1_3"]
+		TrophyRoadBGEndClip="tr_goblin_gm_bg_end"
+		TrophyRoadBGStartClipOffsetX=0
+		TrophyRoadBGStartClipOffsetY=-50
+		TrophyRoadBGEndClipOffsetX=0
+		TrophyRoadBGEndClipOffsetY=0
+		TrophyRoadTrackClip="tr_goblin_gm_path"
+		TrophyRoadTrackOffsetX=20
+		TrophyRoadTrackOffsetY=140
+    [[GoblinRoad.Arenas]]
+		Arena="GoblinArena2"
+		TrophyRoadBGStartClip="tr_goblin_mp_bg_start"
+		TrophyRoadBGMiddleClips=["tr_goblin_mp_bg_mid_1_3", "tr_goblin_mp_bg_mid_2_3", "tr_goblin_mp_bg_mid_3_3", "tr_goblin_mp_bg_mid_1_3", "tr_goblin_mp_bg_mid_2_3", "tr_goblin_mp_bg_mid_3_3", "tr_goblin_mp_bg_mid_1_3", "tr_goblin_mp_bg_mid_2_3", "tr_goblin_mp_bg_mid_3_3"]
+		TrophyRoadBGEndClip="tr_goblin_mp_bg_end"
+		TrophyRoadBGStartClipOffsetX=0
+		TrophyRoadBGStartClipOffsetY=-43
+		TrophyRoadBGEndClipOffsetX=25
+		TrophyRoadBGEndClipOffsetY=0
+		TrophyRoadTrackClip="tr_goblin_mp_path"
+		TrophyRoadTrackOffsetX=20
+		TrophyRoadTrackOffsetY=140
+    [[GoblinRoad.Arenas]]
+		Arena="GoblinArena3"
+		TrophyRoadBGStartClip="tr_goblin_sy_bg_mid_start"
+		TrophyRoadBGMiddleClips=["tr_goblin_sy_bg_mid_1_3", "tr_goblin_sy_bg_mid_2_3", "tr_goblin_sy_bg_mid_3_3", "tr_goblin_sy_bg_mid_1_3", "tr_goblin_sy_bg_mid_2_3", "tr_goblin_sy_bg_mid_3_3", "tr_goblin_sy_bg_mid_1_3"]
+		TrophyRoadBGEndClip="tr_goblin_sy_bg_mid_end"
+		TrophyRoadBGStartClipOffsetX=0
+		TrophyRoadBGStartClipOffsetY=-43
+		TrophyRoadBGEndClipOffsetX=0
+		TrophyRoadBGEndClipOffsetY=-100
+		TrophyRoadTrackClip="tr_goblin_mp_path"
+		TrophyRoadTrackOffsetX=20
+		TrophyRoadTrackOffsetY=140
+    [[GoblinRoad.Arenas]]
+		Arena="GoblinArena4"
+		TrophyRoadBGStartClip="empty"
+		TrophyRoadBGMiddleClips=["empty"]
+		TrophyRoadBGEndClip="empty"
+		TrophyRoadBGStartClipOffsetX=0
+		TrophyRoadBGStartClipOffsetY=0
+		TrophyRoadBGEndClipOffsetX=0
+		TrophyRoadBGEndClipOffsetY=-30
+		TrophyRoadTrackClip="tr_goblin_mp_path"
+		TrophyRoadTrackOffsetX=20
+		TrophyRoadTrackOffsetY=140
+
+
+[PathOfLegends]
+Home="sc/ui_main_screen_pol.sc"
+Road="sc/ui_trophy_road.sc"
+Deck="sc/ui_deck_builder_pol.sc"
+SwitcherClip="switcher_legends"
+MainButtonIcon="button_mode_pol"
+TrophyRoadBGMode="None"
